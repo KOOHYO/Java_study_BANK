@@ -78,11 +78,11 @@ public class BankBookDAO implements BookDAO {
 	//Sale컬럼 수정(업데이트)
 	@Override
 	public int setChangeSale(BankBookDTO bankBookDTO) throws Exception {
+//		int select = bankBookDTO.getBooksale();
+//		select = 1;
 		//1. DB연결
 		Connection con = DBConnector.getConnection();
-		if(bankBookDTO.getBooksale()==1) {
-			
-		}
+		
 		//2. SQL문작성
 		String sql = "UPDATE BANKBOOK SET BOOKSALE = ?  WHERE BOOKNUM = ?";
 		
@@ -91,6 +91,7 @@ public class BankBookDAO implements BookDAO {
 		
 		//4. ?값 세팅
 		st.setInt(1, bankBookDTO.getBooksale());
+		st.setLong(2, bankBookDTO.getBooknum());
 		
 		//5. 최종전송
 		int result = st.executeUpdate();
@@ -104,7 +105,7 @@ public class BankBookDAO implements BookDAO {
 	//BookNum 값으로 조회
 	@Override
 	public BankBookDTO getDetail(BankBookDTO bankBookDTO) throws Exception {
-		BankBookDTO bankBookDTO2 = null;
+		BankBookDTO bankBookDTO2 = null;//만약 값이 없다면 널로 리턴하려고 널값을 초기값으로 넣어준다
 		
 		//1. DB연결
 		Connection con = DBConnector.getConnection();
@@ -123,10 +124,10 @@ public class BankBookDAO implements BookDAO {
 		
 		if(rs.next()) {
 			bankBookDTO2 = new BankBookDTO();
-			bankBookDTO.setBooknum(rs.getLong("BOOKNUM"));
-			bankBookDTO.setBookname(rs.getString("BOOKNAME"));
-			bankBookDTO.setBookrate(rs.getDouble("BOOKRATE"));
-			bankBookDTO.setBooksale(rs.getInt("BOOKSALE"));
+			bankBookDTO2.setBooknum(rs.getLong("BOOKNUM"));
+			bankBookDTO2.setBookname(rs.getString("BOOKNAME"));
+			bankBookDTO2.setBookrate(rs.getDouble("BOOKRATE"));
+			bankBookDTO2.setBooksale(rs.getInt("BOOKSALE"));
 		}
 //		else {
 //			return null; 이렇게하면 바로 종료되기때문에 다른방법으로!
@@ -135,7 +136,7 @@ public class BankBookDAO implements BookDAO {
 		//6. 자원해제
 		DBConnector.disConnect(rs, st, con);
 		
-		return bankBookDTO2;
+		return bankBookDTO2;//만약 값이 없다면 널로 리턴이 돼고 있다면 값이 대입돼어 리턴한다
 	}
 
 	

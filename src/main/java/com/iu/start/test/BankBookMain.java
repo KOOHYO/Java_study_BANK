@@ -17,12 +17,19 @@ public class BankBookMain {
 //		bankBookDTO.setBooknum(System.currentTimeMillis());
 //		bankBookDTO.setBookname("여행저축");
 //		bankBookDTO.setBookrate(12.12);
-//		bankBookDTO.setBooksale(0);
-		bankBookDTO.setBooknum(111L);
+//		bankBookDTO.setBooksale();
+		
+//		bankBookDTO.setBooknum(1659514911403L);
 		
 		 try {
-			 bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
-			 System.out.println(bankBookDTO != null);
+			 
+//			 BankBookDTO bankBookDTO2 = new BankBookDTO();
+//			 bankBookDTO2 = bankBookDAO.getDetail(bankBookDTO);
+//			 System.out.println(bankBookDTO2.getBooknum());
+//			 System.out.println(bankBookDTO2.getBookname());
+//			 System.out.println(bankBookDTO2.getBookrate());
+//			 System.out.println(bankBookDTO2.getBooksale());
+//			 System.out.println(bankBookDTO2 != null);
 			 
 //			 int result = bankBookDAO.setChangeSale(bankBookDTO);
 //			 if (result > 0) {
