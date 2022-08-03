@@ -16,10 +16,14 @@ public class BankMembersMain {
 //		bankMembersDTO.setPhone("010-2222-2222");
 		try {
 			bankMembersDTOs = bankMembersDAO.getSearchByID("GD");
-//			while(bankMembersDTOs.size()>0) {
-//				System.out.println(bankMembersDTOs.get());
-//			}
-			System.out.println(bankMembersDTOs.size()>0);
+			for(int i=0; i<bankMembersDTOs.size(); i++) {
+				System.out.print(bankMembersDTOs.get(i).getUsername()+" / ");
+				System.out.print(bankMembersDTOs.get(i).getPassword()+" / ");
+				System.out.print(bankMembersDTOs.get(i).getName()+" / ");
+				System.out.print(bankMembersDTOs.get(i).getEmail()+" / ");
+				System.out.println(bankMembersDTOs.get(i).getPhone());
+			}
+//			System.out.println(bankMembersDTOs.size()>0);
 			//int result = bankMembersDAO.setJoin(bankMembersDTO);
 			//if(result > 0) {
 			//	System.out.println("성공");
