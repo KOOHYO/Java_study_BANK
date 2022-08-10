@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	ArrayList<BankBookDTO> bankBookDTOs = (ArrayList<BankBookDTO>)request.getAttribute("list");
+	ArrayList<BankBookDTO> ar = (ArrayList<BankBookDTO>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>
@@ -27,18 +27,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<%for(BankBookDTO bankBookDTO : bankBookDTOs){ %>
+			<%for(BankBookDTO bankBookDTO : ar){ %>
 				<tr>
 				<!-- 파라미터 보낼때 띄어쓰기 하지말기 예를들어 detail?bookNum=... -->
-					<td><a href="detail?bookNum=<%= bankBookDTO.getBooknum()%>"><%= bankBookDTO.getBooknum() %></a></td>
-					<td><%= bankBookDTO.getBookname() %></td>
-					<td><%= bankBookDTO.getBookrate() %></td>
-					<td><%= bankBookDTO.getBooksale() %></td>
+					<td><a href="detail?booknum=<%= bankBookDTO.getBooknum()%>"><%= bankBookDTO.getBooknum() %></a></td>
+					<td><a href="detail?booname=<%= bankBookDTO.getBookname() %>"><%= bankBookDTO.getBookname() %></a></td>
 				</tr>
 			<%} %>
 		</tbody>
 	</table>
 	
-	<a href="detail">Detail</a>
+	<a href="./add">상품등록</a>
+	
 </body>
 </html>

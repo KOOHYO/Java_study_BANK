@@ -27,6 +27,7 @@
 		<br>
 		<br>
 		<input type="submit" value="통장개설 완료"><input type="reset" value="초기화">
+		<!-- 위에 말고 밑에는 가능 <butoon type="submit">Add</button> -->
 		
 	</form>
 

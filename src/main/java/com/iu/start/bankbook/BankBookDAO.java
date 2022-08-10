@@ -43,7 +43,7 @@ public class BankBookDAO implements BookDAO {
 
 	//BankBook 모든 데이터를 조회 최신순으로
 	@Override
-	public ArrayList<BankBookDTO> getList(BankBookDTO bankBookDTO) throws Exception {
+	public ArrayList<BankBookDTO> getList() throws Exception {
 		ArrayList<BankBookDTO> bankBookDTOs = new ArrayList<BankBookDTO>();
 		//1. DB연결
 		Connection con = DBConnector.getConnection();
@@ -61,7 +61,7 @@ public class BankBookDAO implements BookDAO {
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
-			bankBookDTO = new BankBookDTO();
+		 	BankBookDTO bankBookDTO = new BankBookDTO();
 			bankBookDTO.setBooknum(rs.getLong("BOOKNUM"));
 			bankBookDTO.setBookname(rs.getString("BOOKNAME"));
 			bankBookDTO.setBookrate(rs.getDouble("BOOKRATE"));

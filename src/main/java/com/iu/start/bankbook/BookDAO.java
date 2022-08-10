@@ -11,7 +11,7 @@ public interface BookDAO {
 	public int setBankBook(BankBookDTO bankbookDTO)throws Exception;
 	
 	//BankBook 모든 데이터를 조회 최신순으로
-	public ArrayList<BankBookDTO> getList(BankBookDTO bankBookDTO)throws Exception;
+	public ArrayList<BankBookDTO> getList()throws Exception;
 	
 	//Sale컬럼 수정(업데이트)
 	public int setChangeSale(BankBookDTO bankbookDTO)throws Exception;
