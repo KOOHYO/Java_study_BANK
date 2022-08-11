@@ -28,9 +28,9 @@ public class BankBookDAO implements BookDAO {
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		//4. ?값 세팅
-		st.setLong(1, bankBookDTO.getBooknum());
-		st.setString(2, bankBookDTO.getBookname());
-		st.setDouble(3, bankBookDTO.getBookrate());
+		st.setLong(1, bankBookDTO.getBookNum());
+		st.setString(2, bankBookDTO.getBookName());
+		st.setDouble(3, bankBookDTO.getBookRate());
 		
 		//5. 최종전송
 		int result = st.executeUpdate();
@@ -62,10 +62,10 @@ public class BankBookDAO implements BookDAO {
 		
 		while(rs.next()) {
 		 	BankBookDTO bankBookDTO = new BankBookDTO();
-			bankBookDTO.setBooknum(rs.getLong("BOOKNUM"));
-			bankBookDTO.setBookname(rs.getString("BOOKNAME"));
-			bankBookDTO.setBookrate(rs.getDouble("BOOKRATE"));
-			bankBookDTO.setBooksale(rs.getInt("BOOKSALE"));
+			bankBookDTO.setBookNum(rs.getLong("bookNum"));
+			bankBookDTO.setBookName(rs.getString("bookName"));
+			bankBookDTO.setBookRate(rs.getDouble("bookRate"));
+			bankBookDTO.setBookSale(rs.getInt("bookSale"));
 			bankBookDTOs.add(bankBookDTO);
 		}
 		
@@ -90,8 +90,8 @@ public class BankBookDAO implements BookDAO {
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		//4. ?값 세팅
-		st.setInt(1, bankBookDTO.getBooksale());
-		st.setLong(2, bankBookDTO.getBooknum());
+		st.setInt(1, bankBookDTO.getBookSale());
+		st.setLong(2, bankBookDTO.getBookNum());
 		
 		//5. 최종전송
 		int result = st.executeUpdate();
@@ -117,17 +117,17 @@ public class BankBookDAO implements BookDAO {
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		//4. ?값 세팅
-		st.setLong(1, bankBookDTO.getBooknum());
+		st.setLong(1, bankBookDTO.getBookNum());
 		
 		//5. 최종전송
 		ResultSet rs = st.executeQuery();
 		
 		if(rs.next()) {
 			bankBookDTO2 = new BankBookDTO();
-			bankBookDTO2.setBooknum(rs.getLong("BOOKNUM"));
-			bankBookDTO2.setBookname(rs.getString("BOOKNAME"));
-			bankBookDTO2.setBookrate(rs.getDouble("BOOKRATE"));
-			bankBookDTO2.setBooksale(rs.getInt("BOOKSALE"));
+			bankBookDTO2.setBookNum(rs.getLong("bookNum"));
+			bankBookDTO2.setBookName(rs.getString("bookName"));
+			bankBookDTO2.setBookRate(rs.getDouble("bookRate"));
+			bankBookDTO2.setBookSale(rs.getInt("bookSale"));
 		}
 //		else {
 //			return null; 이렇게하면 바로 종료되기때문에 다른방법으로!
@@ -137,6 +137,32 @@ public class BankBookDAO implements BookDAO {
 		DBConnector.disConnect(rs, st, con);
 		
 		return bankBookDTO2;//만약 값이 없다면 널로 리턴이 돼고 있다면 값이 대입돼어 리턴한다
+	}
+
+	@Override
+	public int setUpdate(BankBookDTO bankBookDTO) throws Exception {
+		
+		// 1. DB연결
+		Connection con = DBConnector.getConnection();
+		
+		// 2. SQL문 작성
+		String sql = "UPDATE BANKBOOK SET BOOKNAME = ?, BOOKRATE = ? WHERE BOOKNUM = ?";
+		
+		// 3. 미리전송
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		// 4. ?값 세팅
+		st.setString(1, bankBookDTO.getBookName());
+		st.setDouble(2, bankBookDTO.getBookRate());
+		st.setLong(3, bankBookDTO.getBookNum());
+		
+		// 5. 최종전송
+		int result = st.executeUpdate();
+		
+		// 6. 자원해제
+		DBConnector.disConnect(st, con);
+		
+		return result;
 	}
 
 	

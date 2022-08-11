@@ -1,7 +1,8 @@
 <%@page import="com.iu.start.bankbook.BankBookDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% BankBookDTO bankBookDTO = (BankBookDTO)request.getAttribute("detail"); %>
+   <!-- 요청이 발생하면 생성, 응답이 나가면 소멸 : Requst --> 
+<%-- BankBookDTO bankBookDTO = (BankBookDTO)request.getAttribute("detail"); --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 </head>
 <body>
 	<h1>Detail Page</h1>
-	<% if(bankBookDTO != null){ %>
+
 	<table border="1">
 		<thead>
 			<tr>
@@ -22,28 +23,24 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><%= bankBookDTO.getBooknum() %></td>
-				<td><%= bankBookDTO.getBookname() %></td>
-				<td><%= bankBookDTO.getBookrate() %></td>
-				<td><%= bankBookDTO.getBooksale() %></td>
+				<td>${requestScope.detail.getBookNum()}</td><!-- 속성명 잘 보기! -->
+				<td>${requestScope.detail.bookName}</td>
+				<td>${detail.bookRate}</td>
+				<td>${detail.bookSale}</td>
 				<td>
-					<% if(bankBookDTO.getBooksale()==1){ %>
-						판매중
-					<%}else{ %>
-						판매금지
-					<%} %>
+
 				</td>
 			</tr>
 		</tbody>
 	</table>
-	<%}else{ %>
-		데이터가 없습니다
-	<%} %>
+
 	<!-- 상대경로 -->
 	<a href="./member/login">Login</a>
 	<!-- 절대경로 -->
 	<a href="/member/join">Join</a>
 	
 	<a href="./list">리스트보기</a>
+	
+	<a href="./update?bookNum=${detail.bookNum}">수정하기</a>
 </body>
 </html>

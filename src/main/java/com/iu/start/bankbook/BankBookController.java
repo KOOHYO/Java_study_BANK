@@ -11,6 +11,31 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value = "/bankbook/*")
 public class BankBookController {
+	
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public void setUpdate(BankBookDTO bankBookDTO) throws Exception {
+		BankBookDAO bankBookDAO = new BankBookDAO();
+		ModelAndView mv = new ModelAndView();
+		
+		int result = bankBookDAO.setUpdate(bankBookDTO);
+		if(result>0) {
+			System.out.println("수정 성공");
+		}else {
+			System.out.println("수정 실패");
+		}
+	}
+	
+	@RequestMapping(value = "update", method = RequestMethod.GET)
+	public String update(BankBookDTO bankBookDTO, Model model)throws Exception{
+		System.out.println("Update 페이지 접속");
+		BankBookDAO bankBookDAO = new BankBookDAO();
+		System.out.println(bankBookDTO.getBookNum());
+		bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
+		
+		model.addAttribute("detail", bankBookDTO);
+		
+		return "bankbook/update";
+	}
 
 	@RequestMapping(value = "list", method=RequestMethod.GET)
 	public String list(Model model) throws Exception {
@@ -32,10 +57,12 @@ public class BankBookController {
 		//스프링이 하는 과정을 우리가 직접 객체를 만들어서 보내도 됀다
 		ModelAndView mv = new ModelAndView();
 		BankBookDAO bankBookDAO = new BankBookDAO();
-		BankBookDTO bankBookDTO2 = bankBookDAO.getDetail(bankBookDTO);
+		System.out.println(bankBookDTO.getBookNum());
+		System.out.println(bankBookDTO.getBookName());
+		bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
 		//return "bankbook/detail";
 		mv.setViewName("bankbook/detail");
-		mv.addObject("detail", bankBookDTO2);
+		mv.addObject("detail", bankBookDTO);
 		
 		return mv;
 	}
@@ -57,7 +84,7 @@ public class BankBookController {
 	public ModelAndView add(BankBookDTO bankBookDTO) throws Exception {
 		System.out.println("Add 페이지 접속");
 		BankBookDAO bankBookDAO = new BankBookDAO();
-		System.out.println(bankBookDTO.getBookname());
+		System.out.println(bankBookDTO.getBookName());
 		ModelAndView mv = new ModelAndView();
 		
 		int result = bankBookDAO.setBankBook(bankBookDTO);

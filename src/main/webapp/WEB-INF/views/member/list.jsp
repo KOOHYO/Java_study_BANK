@@ -22,7 +22,7 @@
 		<tbody>
 			<%for(BankMembersDTO bankMembersDTO: ar){ %>
 			<tr>
-				<td><%= bankMembersDTO.getUsername() %></td>
+				<td><%= bankMembersDTO.getUserName() %></td>
 				<td><%= bankMembersDTO.getName() %></td>
 				<td><%= bankMembersDTO.getEmail() %></td>
 				<td><%= bankMembersDTO.getPhone() %></td>

@@ -14,11 +14,11 @@
     	<h2>회원가입</h2>
    		<div>
         	아이디를 입력하세요<br>
-        	<input type="text" name="username"><input type="button" value="중복확인"><br>
+        	<input type="text" name="userName"><input type="button" value="중복확인"><br>
        		비밀번호를 입력 하세요<br>
         	<input type="password"><br> 
         	비밀번호를 다시 입력하세요<br>
-        	<input type="password" name="password"><input type="button" value="비밀번호 확인"><br>
+        	<input type="password" name="passWord"><input type="button" value="비밀번호 확인"><br>
     	</div>
     	<br>
     	<div>

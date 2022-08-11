@@ -17,8 +17,8 @@ public class BankMembersMain {
 		try {
 			bankMembersDTOs = bankMembersDAO.getSearchByID("GD");
 			for(int i=0; i<bankMembersDTOs.size(); i++) {
-				System.out.print(bankMembersDTOs.get(i).getUsername()+" / ");
-				System.out.print(bankMembersDTOs.get(i).getPassword()+" / ");
+				System.out.print(bankMembersDTOs.get(i).getUserName()+" / ");
+				System.out.print(bankMembersDTOs.get(i).getPassWord()+" / ");
 				System.out.print(bankMembersDTOs.get(i).getName()+" / ");
 				System.out.print(bankMembersDTOs.get(i).getEmail()+" / ");
 				System.out.println(bankMembersDTOs.get(i).getPhone());

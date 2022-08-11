@@ -23,6 +23,16 @@ public class BankBookMain {
 		
 		 try {
 			 
+			 bankBookDTO.setBookName("funny");
+			 bankBookDTO.setBookRate(7);
+			 bankBookDTO.setBookNum(20220810);
+			 int result = bankBookDAO.setUpdate(bankBookDTO);
+			 if(result>0) {
+				 System.out.println("수정성공!");
+			 }else {
+				 System.out.println("수정실패!");
+			 }
+			 
 //			 BankBookDTO bankBookDTO2 = new BankBookDTO();
 //			 bankBookDTO2 = bankBookDAO.getDetail(bankBookDTO);
 //			 System.out.println(bankBookDTO2.getBooknum());

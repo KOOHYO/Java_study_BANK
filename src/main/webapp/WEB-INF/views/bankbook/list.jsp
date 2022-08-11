@@ -23,15 +23,15 @@
 	<table border="1">
 		<thead>
 			<tr>
-				<th>BookNum</th><th>BookName</th><th>BookRate</th><th>Booksale</th>
+				<th>BookNum</th><th>BookName</th>
 			</tr>
 		</thead>
 		<tbody>
 			<%for(BankBookDTO bankBookDTO : ar){ %>
 				<tr>
 				<!-- 파라미터 보낼때 띄어쓰기 하지말기 예를들어 detail?bookNum=... -->
-					<td><a href="detail?booknum=<%= bankBookDTO.getBooknum()%>"><%= bankBookDTO.getBooknum() %></a></td>
-					<td><a href="detail?booname=<%= bankBookDTO.getBookname() %>"><%= bankBookDTO.getBookname() %></a></td>
+					<td><a href="detail?bookNum=<%= bankBookDTO.getBookNum()%>"><%= bankBookDTO.getBookNum()%></a></td>
+					<td><a href="detail?bookName=<%= bankBookDTO.getBookName()%>"><%= bankBookDTO.getBookName()%></a></td>
 				</tr>
 			<%} %>
 		</tbody>

@@ -3,36 +3,37 @@ package com.iu.start.bankbook;
 
 public class BankBookDTO {
 	//변수선언
-	private long booknum;
-	private String bookname;
-	private double bookrate;
-	private int booksale;
+	private long bookNum;
+	private String bookName;
+	private double bookRate;
+	private int bookSale;
 	
 	//개터 세터
 
-	public long getBooknum() {
-		return booknum;
+	public long getBookNum() {
+		return bookNum;
 	}
-	public void setBooknum(long booknum) {
-		this.booknum = booknum;
+	public void setBookNum(long bookNum) {
+		this.bookNum = bookNum;
 	}
-	public String getBookname() {
-		return bookname;
+	public String getBookName() {
+		return bookName;
 	}
-	public void setBookname(String bookname) {
-		this.bookname = bookname;
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
 	}
-	public double getBookrate() {
-		return bookrate;
+	public double getBookRate() {
+		return bookRate;
 	}
-	public void setBookrate(double bookrate) {
-		this.bookrate = bookrate;
+	public void setBookRate(double bookRate) {
+		this.bookRate = bookRate;
 	}
-	public int getBooksale() {
-		return booksale;
+	public int getBookSale() {
+		return bookSale;
 	}
-	public void setBooksale(int booksale) {
-		this.booksale = booksale;
+	public void setBookSale(int bookSale) {
+		this.bookSale = bookSale;
 	}
+
 	
 }
