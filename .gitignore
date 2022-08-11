@@ -122,4 +122,6 @@ $RECYCLE.BIN/
 # My lgnore Files
 DBConnector.java
 
+target/
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
