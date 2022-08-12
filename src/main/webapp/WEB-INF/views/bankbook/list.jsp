@@ -30,7 +30,7 @@
 			<%for(BankBookDTO bankBookDTO : ar){ %>
 				<tr>
 				<!-- 파라미터 보낼때 띄어쓰기 하지말기 예를들어 detail?bookNum=... -->
-					<td><a href="detail?bookNum=<%= bankBookDTO.getBookNum()%>"><%= bankBookDTO.getBookName()%></a></td>
+					<td><a href="detail.iu?bookNum=<%= bankBookDTO.getBookNum()%>"><%= bankBookDTO.getBookName()%></a></td>
 					<td><%= bankBookDTO.getBookRate()%></td>
 				</tr>
 			<%} %>

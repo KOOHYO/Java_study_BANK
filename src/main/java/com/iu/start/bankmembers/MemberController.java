@@ -22,10 +22,11 @@ public class MemberController {
 	// @ : 설명+실행
 	
 	@RequestMapping(value = "logout.iu", method = RequestMethod.GET)
-	public void logout(HttpSession session)throws Exception{
+	public String logout(HttpSession session)throws Exception{
 		//세션안에 멤버속성 삭제
 		//세션을 소멸 ※ 보통 이걸 많이씀!
 		session.invalidate();
+		return"redirect:../";
 	}
 	
 	// /member/login
