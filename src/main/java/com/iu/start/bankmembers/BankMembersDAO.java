@@ -9,6 +9,28 @@ import com.iu.start.util.DBConnector;
 
 public class BankMembersDAO implements MembersDAO {
 
+	public BankMembersDTO getLogin(BankMembersDTO bankMembersDTO)throws Exception{
+		
+		Connection con = DBConnector.getConnection();
+		
+		String sql = "SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=? AND PASSWORD=?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.
+		
+		ResultSet rs = st.executeQuery();
+		
+		if(rs.next()) {
+			
+		}else {
+			
+		}
+		
+		
+		return bankMembersDTO;
+	}
+	
 	//bankMembaers 회원가입
 	//int타입으로 리턴하는 이유는 insert가 돼었는지 확인하는 방법이 0 아니면 1이상에 숫자가 오기 때문이다
 	@Override

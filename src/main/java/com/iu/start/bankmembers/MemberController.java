@@ -3,6 +3,7 @@ package com.iu.start.bankmembers;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,8 +31,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "login.iu", method = RequestMethod.POST)
-	public String login(BankMembersDTO bankMembersDTO) {
+	public String login(HttpServletRequest request, BankMembersDTO bankMembersDTO) {
 		System.out.println("DB로그인 실행");
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("member", bankMembersDTO);
 		//"redirect:다시접속할 URL주소(절대경로, 상대경로)" 해야할 아이입니다 보통 상대경로를 많이 씀
 		return "redirect:../";
 	}
