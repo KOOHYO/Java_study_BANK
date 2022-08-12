@@ -39,7 +39,7 @@
 	<a href="./update.iu?bookNum=${detail.bookNum}">통장수정</a>
 	<a href="./delete.iu?bookNum=${detail.bookNum}">통장삭제</a>
 	<!-- 절대경로 -->
-	<a href="../bankAccount/add.iu">통장가입하기</a>
+	<a href="../bankAccount/add.iu?bookNum=${detail.bookNum}">통장가입하기</a>
 	</c:if>
 	
 	<c:if test="${empty sessionScope.member}">
