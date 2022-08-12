@@ -35,19 +35,16 @@
 		</tbody>
 	</table>
 	
+	<c:if test="${not empty sessionScope.member}">
+	<a href="./update.iu?bookNum=${detail.bookNum}">통장수정</a>
+	<a href="./delete.iu?bookNum=${detail.bookNum}">통장삭제</a>
+	</c:if>
+	
 	<c:if test="${empty sessionScope.member}">
 	<!-- 상대경로 -->
 	<a href="../member/login.iu">Login</a>
 	<!-- 절대경로 -->
-	<a href="/member/join.iu">Join</a>
-	</c:if>
-	
-	
-	<a href="./update.iu?bookNum=${detail.bookNum}">통장수정</a>
-	<a href="./delete.iu?bookNum=${detail.bookNum}">통장삭제</a>
-	
-	<c:if test="${not empty sessionScope.member}">
-	<a href="#">가입하기</a>
+	<a href="/member/join.iu">가입하기</a>
 	</c:if>
 	
 	<a href="./list.iu">통장리스트</a>
