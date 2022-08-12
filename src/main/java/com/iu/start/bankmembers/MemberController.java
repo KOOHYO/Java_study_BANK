@@ -21,6 +21,13 @@ public class MemberController {
 	// annotation(어너테이션)
 	// @ : 설명+실행
 	
+	@RequestMapping(value = "logout.iu", method = RequestMethod.GET)
+	public void logout(HttpSession session)throws Exception{
+		//세션안에 멤버속성 삭제
+		//세션을 소멸 ※ 보통 이걸 많이씀!
+		session.invalidate();
+	}
+	
 	// /member/login
 	// 이 URL주소가 오면 이 메서드를 실행 해 주세요
 	@RequestMapping(value = "login.iu", method = RequestMethod.GET)
