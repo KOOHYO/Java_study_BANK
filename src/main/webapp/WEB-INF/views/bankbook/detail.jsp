@@ -40,9 +40,10 @@
 	<!-- 절대경로 -->
 	<a href="/member/join.iu">Join</a>
 	
-	<a href="./list.iu">리스트보기</a>
+	<a href="./list.iu">통장리스트</a>
 	
-	<a href="./update.iu?bookNum=${detail.bookNum}">수정하기</a>
+	<a href="./update.iu?bookNum=${detail.bookNum}">통장수정</a>
+	<a href="./delete.iu?bookNum=${detail.bookNum}">통장삭제</a>
 	
 	<c:if test="${sessionScope.member}">
 	<a href="#">가입하기</a>
