@@ -30,7 +30,6 @@ public class BankMembersDAO implements MembersDAO {
 			bankMembersDTO=null;
 			//return null;
 		}
-		System.out.println("DAO"+bankMembersDTO);
 		
 		return bankMembersDTO;
 	}
