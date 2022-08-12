@@ -45,7 +45,7 @@
 	<a href="../member/login.iu">로그인</a>
 	<a href="../member/join.iu">회원가입하기</a>
 	<!-- 절대경로 -->
-	<a href="#">통장가입하기</a>
+	<a href="../bankAccount/add.iu">통장가입하기</a>
 	</c:if>
 	
 	<a href="./list.iu">통장리스트</a>
