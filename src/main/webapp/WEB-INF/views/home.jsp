@@ -12,8 +12,17 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 
+<c:if test="${empty sessionScope.member}">
 <a href="./member/login.iu">Login</a>
 <a href="./member/join.iu">Join</a>
+</c:if>
+
+<c:if test="${not empty sessionScope.member}">
+<h3><a></a>님 환영합니다</h3>
+<a href="#">Logout</a>
+<a href="#">MyPage</a>
+</c:if>
+
 <a href="./bankbook/list.iu">상품리스트</a>
 <a href="./member/search.iu">Search</a>
 </body>

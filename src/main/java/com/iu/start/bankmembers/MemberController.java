@@ -35,6 +35,7 @@ public class MemberController {
 		System.out.println("DB로그인 실행");
 		BankMembersDAO bankMembersDAO = new BankMembersDAO();
 		bankMembersDTO = bankMembersDAO.getLogin(bankMembersDTO);
+		System.out.println(bankMembersDTO);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("member", bankMembersDTO);
