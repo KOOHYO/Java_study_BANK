@@ -14,10 +14,10 @@
     <form action="./login.iu" method="post"><!-- /member/login -->
 	    <div>
 	        아이디를 입력하세요<br>
-	        <input type="text" name="id"><input type="hidden"><br>
+	        <input type="text" name="userName"><input type="hidden"><br>
 	        <br>
 	        비밀번호를 입력 하세요<br>
-	        <input type="password" name="pw"><br> <input type="submit" value="로그인"><br>
+	        <input type="password" name="passWord"><br> <input type="submit" value="로그인"><br>
 	    </div>
 	    <a href="study/index.html">Home 절대경로</a>
 	    <a href="./study/index.html">Home 상대경로1</a>
