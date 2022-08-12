@@ -12,9 +12,9 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 
-<a href="./member/login">Login</a>
-<a href="./member/join">Join</a>
-<a href="./bankbook/list">상품리스트</a>
-<a href="./member/search">Search</a>
+<a href="./member.iu/login">Login</a>
+<a href="./member.iu/join">Join</a>
+<a href="./bankbook.iu/list">상품리스트</a>
+<a href="./member.iuS/search">Search</a>
 </body>
 </html>

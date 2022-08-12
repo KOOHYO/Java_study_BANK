@@ -11,7 +11,7 @@
 	
     <h2>로그인</h2>
     
-    <form action="./login" method="post"><!-- /member/login -->
+    <form action="./login.iu" method="post"><!-- /member/login -->
 	    <div>
 	        아이디를 입력하세요<br>
 	        <input type="text" name="id"><input type="hidden"><br>

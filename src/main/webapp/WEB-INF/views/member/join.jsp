@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="join" method="post">
+	<form action="./join.iu" method="post">
 		<h1>Join Page</h1>
 	    
     	<h2>회원가입</h2>

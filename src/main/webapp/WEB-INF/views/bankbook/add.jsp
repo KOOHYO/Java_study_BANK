@@ -9,7 +9,7 @@
 <body>
 	<h1>BankBook Add</h1>
 	<br>
-	<form action="add" method="post">
+	<form action="./add.iu" method="post">
 		현재 날짜를 입력하세요
 		<br>
 		<input type="text" name="bookNum">

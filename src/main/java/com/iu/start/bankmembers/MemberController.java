@@ -22,14 +22,14 @@ public class MemberController {
 	
 	// /member/login
 	// 이 URL주소가 오면 이 메서드를 실행 해 주세요
-	@RequestMapping(value = "login", method = RequestMethod.GET)
+	@RequestMapping(value = "login.iu", method = RequestMethod.GET)
 	public String login() {
 		System.out.println("로그인 실행");
 		
 		return "member/login";
 	}
 	
-	@RequestMapping(value = "login", method = RequestMethod.POST)
+	@RequestMapping(value = "login.iu", method = RequestMethod.POST)
 	public String login(BankMembersDTO bankMembersDTO) {
 		System.out.println("DB로그인 실행");
 		//"redirect:다시접속할 URL주소(절대경로, 상대경로)" 해야할 아이입니다 보통 상대경로를 많이 씀
@@ -37,7 +37,7 @@ public class MemberController {
 	}
 	
 	// join /member/join GET
-	@RequestMapping(value = "join", method = RequestMethod.GET)
+	@RequestMapping(value = "join.iu", method = RequestMethod.GET)
 	public String join() {
 		System.out.println("회원가입 GET 실행");
 		
@@ -47,7 +47,7 @@ public class MemberController {
 	// join /member/join POST
 	// 오버로딩 : 매개변수를 다르게 
 	// 그래서 입력받는 HttpServletRequest request를 작성
-	@RequestMapping(value = "join", method = RequestMethod.POST)
+	@RequestMapping(value = "join.iu", method = RequestMethod.POST)
 	public String join(BankMembersDTO bankMembersDTO) throws Exception {//매개변수로 String username 이라쓰면 
 		System.out.println("회원가입 POST 실행");
 		BankMembersDAO bankMembersDAO = new BankMembersDAO();
@@ -87,13 +87,13 @@ public class MemberController {
 	}
 	
 	//검색어를 입력해서 ID를 찾는 메서드
-	@RequestMapping(value = "search", method = RequestMethod.GET)
+	@RequestMapping(value = "search.iu", method = RequestMethod.GET)
 	public void getSearchByID() throws Exception {
 		System.out.println("아이디검색창");
 
 	}
 	
-	@RequestMapping(value = "search", method = RequestMethod.POST)
+	@RequestMapping(value = "search.iu", method = RequestMethod.POST)
 	public ModelAndView getSearchByID(String search) throws Exception {
 		System.out.println("아이디 정보 검색중");
 		ModelAndView mv = new ModelAndView();

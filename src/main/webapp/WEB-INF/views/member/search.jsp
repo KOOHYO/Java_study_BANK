@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="search" method="post">
+	<form action="./search.iu" method="post">
 		아이디를 입력하세요
 		<br>
 		<input type="text" name="search">

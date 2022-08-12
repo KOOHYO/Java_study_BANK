@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/bankbook/*")
 public class BankBookController {
 	
-	@RequestMapping(value = "update", method = RequestMethod.POST)
+	@RequestMapping(value = "update.iu", method = RequestMethod.POST)
 	public void setUpdate(BankBookDTO bankBookDTO) throws Exception {
 		BankBookDAO bankBookDAO = new BankBookDAO();
 		ModelAndView mv = new ModelAndView();
@@ -25,7 +25,7 @@ public class BankBookController {
 		}
 	}
 	
-	@RequestMapping(value = "update", method = RequestMethod.GET)
+	@RequestMapping(value = "update.iu", method = RequestMethod.GET)
 	public String update(BankBookDTO bankBookDTO, Model model)throws Exception{
 		System.out.println("Update 페이지 접속");
 		BankBookDAO bankBookDAO = new BankBookDAO();
@@ -37,7 +37,7 @@ public class BankBookController {
 		return "bankbook/update";
 	}
 
-	@RequestMapping(value = "list", method=RequestMethod.GET)
+	@RequestMapping(value = "list.iu", method=RequestMethod.GET)
 	public String list(Model model) throws Exception {
 		System.out.println("List 페이지 접속");
 		BankBookDAO bankBookDAO = new BankBookDAO();
@@ -51,7 +51,7 @@ public class BankBookController {
 		return "bankbook/list";
 	}
 	
-	@RequestMapping(value = "detail", method = RequestMethod.GET)
+	@RequestMapping(value = "detail.iu", method = RequestMethod.GET)
 	public ModelAndView detail(BankBookDTO bankBookDTO) throws Exception {
 		System.out.println("Detail 페이지 접속");
 		//스프링이 하는 과정을 우리가 직접 객체를 만들어서 보내도 됀다
@@ -68,7 +68,7 @@ public class BankBookController {
 	}
 	
 	// /bankbook/add GET/WEB-INF/views/bankbook/add.jsp
-	@RequestMapping(value = "add", method = RequestMethod.GET)
+	@RequestMapping(value = "add.iu", method = RequestMethod.GET)
 	public void add() throws Exception {
 		System.out.println("Add 페이지 접속");
 		
@@ -80,7 +80,7 @@ public class BankBookController {
 		//return "bankbook/add";
 	}
 	
-	@RequestMapping(value = "add", method=RequestMethod.POST)
+	@RequestMapping(value = "add.iu", method=RequestMethod.POST)
 	public ModelAndView add(BankBookDTO bankBookDTO) throws Exception {
 		System.out.println("Add 페이지 접속");
 		BankBookDAO bankBookDAO = new BankBookDAO();
@@ -96,7 +96,7 @@ public class BankBookController {
 		
 		//return "bankbook/add";
 		//상품 등록 후 리스트페이지로
-		mv.setViewName("redirect:./list");
+		mv.setViewName("redirect:./list.iu");
 		
 		return mv;
 	}

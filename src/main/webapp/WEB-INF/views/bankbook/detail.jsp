@@ -35,12 +35,12 @@
 	</table>
 
 	<!-- 상대경로 -->
-	<a href="./member/login">Login</a>
+	<a href="./member.iu/login">Login</a>
 	<!-- 절대경로 -->
-	<a href="/member/join">Join</a>
+	<a href="/member.iu/join">Join</a>
 	
-	<a href="./list">리스트보기</a>
+	<a href="./list.iu">리스트보기</a>
 	
-	<a href="./update?bookNum=${detail.bookNum}">수정하기</a>
+	<a href="./update.iu?bookNum=${detail.bookNum}">수정하기</a>
 </body>
 </html>
