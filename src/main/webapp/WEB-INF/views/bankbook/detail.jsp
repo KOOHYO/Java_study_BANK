@@ -35,7 +35,7 @@
 	</table>
 
 	<!-- 상대경로 -->
-	<a href="./member/login.iu">Login</a>
+	<a href="../member/login.iu">Login</a>
 	<!-- 절대경로 -->
 	<a href="/member/join.iu">Join</a>
 	
