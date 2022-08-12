@@ -29,7 +29,6 @@ public class BankBookController {
 	public String update(BankBookDTO bankBookDTO, Model model)throws Exception{
 		System.out.println("Update 페이지 접속");
 		BankBookDAO bankBookDAO = new BankBookDAO();
-		System.out.println(bankBookDTO.getBookNum());
 		bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
 		
 		model.addAttribute("detail", bankBookDTO);

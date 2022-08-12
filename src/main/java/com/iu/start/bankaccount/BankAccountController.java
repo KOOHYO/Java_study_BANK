@@ -13,6 +13,7 @@ public class BankAccountController {
 	@RequestMapping(value = "add.iu", method = RequestMethod.GET)
 	public void add()throws Exception{
 		System.out.println("BankAccount Add");
+		
 	}
 	
 }
