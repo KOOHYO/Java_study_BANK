@@ -31,8 +31,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "login.iu", method = RequestMethod.POST)
-	public String login(HttpServletRequest request, BankMembersDTO bankMembersDTO) {
+	public String login(HttpServletRequest request, BankMembersDTO bankMembersDTO) throws Exception {
 		System.out.println("DB로그인 실행");
+		BankMembersDAO bankMembersDAO = new BankMembersDAO();
+		bankMembersDTO = bankMembersDAO.getLogin(bankMembersDTO);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("member", bankMembersDTO);
