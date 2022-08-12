@@ -28,7 +28,9 @@ public class BankBookDAO implements BookDAO {
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		//4. ?값 세팅
-		st.setLong(1, bankBookDTO.getBookNum());
+		Calendar ca = Calendar.getInstance();
+		
+		st.setLong(1, ca.getTimeInMillis());
 		st.setString(2, bankBookDTO.getBookName());
 		st.setDouble(3, bankBookDTO.getBookRate());
 		

@@ -30,7 +30,7 @@ public class BankAccountController {
 		BankMembersDTO bankMembersDTO = (BankMembersDTO)session.getAttribute("member");
 		bankAccountDTO.setUserName(bankMembersDTO.getUserName());
 		
-		int result = this.bankAccountDAO.add(null);
+		int result = this.bankAccountDAO.add(bankAccountDTO);
 		if(result>0) {
 			System.out.println("통장가입성공!");
 		}else {
