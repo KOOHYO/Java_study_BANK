@@ -31,7 +31,7 @@ public class BoardDAO {
 			boardDTO.setBoardNum(rs.getLong("BOARDNUM"));
 			boardDTO.setBoardTitle(rs.getString("BOARDTITLE"));
 			boardDTO.setBoardDetail(rs.getString("BOARDDETAIL"));
-			boardDTO.setBoardUserName(rs.getString("USERNAME"));
+			boardDTO.setBoardUserName(rs.getString("BOARDUSERNAME"));
 			boardDTO.setBoardDate(rs.getDate("BOARDDATE"));
 			boardDTO.setBoardHits(rs.getInt("BOARDHITS"));
 			boardDTOs.add(boardDTO);

@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Book List</h1>
+	<h1>통장 리스트</h1>
 	<!-- /book/list -->
 	
 	<!-- /book/detail   jsp:derail.jsp -->

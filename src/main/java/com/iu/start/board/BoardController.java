@@ -13,14 +13,19 @@ public class BoardController {
 
 	@RequestMapping (value = "list.iu", method = RequestMethod.GET)
 	public String getList(Model model)throws Exception {
-		System.out.println("list 접속");
+		System.out.println("게시판목록 접속");
 		BoardDAO boardDAO = new BoardDAO();
 		ArrayList<BoardDTO> boardDTOs = boardDAO.getList();
 		
 		System.out.println(boardDTOs);
 		model.addAttribute("list", boardDTOs);
 		
-		return "board/list.iu";
+		return "board/list";
+	}
+	
+	@RequestMapping (value = "detail.iu", method = RequestMethod.GET)
+	public void getDetail() {
+		System.out.println("게시판 글 상세보기 접속");
 	}
 	
 }

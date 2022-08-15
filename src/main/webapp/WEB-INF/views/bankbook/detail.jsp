@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Detail Page</h1>
+	<h1>통장 상세정보</h1>
 
 	<table border="1">
 		<thead>

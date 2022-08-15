@@ -8,14 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>List Page</h3>
+	<h3>게시판</h3>
 
-	<table>
+	<table border="1">
 		<thead>
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
-				<th>내용</th>
 				<th>작성자</th>
 				<th>작성날짜</th>
 				<th>조회수</th>
@@ -25,7 +24,7 @@
 			<c:forEach items="${requestScope.list}" var="dto">
 				<tr>
 					<th>${pageScope.dto.boardNum}</th>
-					<th>${pageScope.dto.boardTitle}</th>
+					<th><a href="detail.iu?boardNum=${dto.boardNum}">${pageScope.dto.boardTitle}</a></th>
 					<th>${pageScope.dto.boardUserName}</th>
 					<th>${pageScope.dto.boardDate}</th>
 					<th>${pageScope.dto.boardHits}</th>
