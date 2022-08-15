@@ -17,6 +17,7 @@ public class BoardController {
 		BoardDAO boardDAO = new BoardDAO();
 		ArrayList<BoardDTO> boardDTOs = boardDAO.getList();
 		
+		System.out.println(boardDTOs);
 		model.addAttribute("list", boardDTOs);
 		
 		return "board/list.iu";
