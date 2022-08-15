@@ -44,4 +44,32 @@ public class BoardDAO {
 		
 	}
 	
+	public BoardDTO getDetail(BoardDTO boardDTO)throws Exception{
+		BoardDTO boardDTO2=null;
+		
+		Connection con = DBConnector.getConnection();
+		
+		String sql = "SELECT * FROM BOARD WHERE BOARDNUM = ?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setLong(1, boardDTO.getBoardNum());
+		
+		ResultSet rs = st.executeQuery();
+		
+		if(rs.next()) {
+			boardDTO2 = new BoardDTO();
+			boardDTO2.setBoardNum(rs.getLong("BOARDNUM"));
+			boardDTO2.setBoardTitle(rs.getString("BOARDTITLE"));
+			boardDTO2.setBoardDetail(rs.getString("BOARDDETAIL"));
+			boardDTO2.setBoardUserName(rs.getString("BOARDUSERNAME"));
+			boardDTO2.setBoardDate(rs.getDate("BOARDDATE"));
+			boardDTO2.setBoardHits(rs.getInt("BOARDHITS"));
+		}
+		
+		DBConnector.disConnect(rs, st, con);
+		
+		return boardDTO2;
+	}
+	
 }
