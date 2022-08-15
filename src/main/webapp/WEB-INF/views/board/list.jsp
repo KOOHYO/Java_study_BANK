@@ -22,10 +22,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="">
-			<tr>
-				<th></th>
-			</tr>
+			<c:forEach items="${requestScope.list}" var="dto">
+				<tr>
+					<th>${pageScope.dto.boardNum}</th>
+					<th>${pageScope.dto.boardTitle}</th>
+					<th>${pageScope.dto.boardUserName}</th>
+					<th>${pageScope.dto.boardDate}</th>
+					<th>${pageScope.dto.boardHits}</th>
+				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
