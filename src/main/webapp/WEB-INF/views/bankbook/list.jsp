@@ -35,7 +35,9 @@
 		</tbody>
 	</table>
 	
-	<a href="./add.iu">통장등록</a>
+	<c:if test="${not empty sessionScope.member}">
+		<a href="./add.iu">통장등록</a>
+	</c:if>
 	
 </body>
 </html>
