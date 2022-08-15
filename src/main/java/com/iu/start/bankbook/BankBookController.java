@@ -23,6 +23,7 @@ public class BankBookController {
 		}else {
 			System.out.println("수정 실패");
 		}
+		
 	}
 	
 	@RequestMapping(value = "update.iu", method = RequestMethod.GET)
