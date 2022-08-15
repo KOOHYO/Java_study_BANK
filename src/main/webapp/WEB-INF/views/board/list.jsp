@@ -22,9 +22,11 @@
 			</tr>
 		</thead>
 		<tbody>
+			<c:forEach items="">
 			<tr>
 				<th></th>
 			</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 </body>
