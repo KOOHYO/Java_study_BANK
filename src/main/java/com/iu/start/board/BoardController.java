@@ -19,9 +19,9 @@ public class BoardController {
 	
 	@RequestMapping (value = "list.iu", method = RequestMethod.GET)
 	public String getList(Model model)throws Exception {
-		System.out.println("게시판목록 접속");
+		System.out.println("게시판 목록페이지 접속");
 		ArrayList<BoardDTO> boardDTOs = boardService.getList();
-
+ 
 		model.addAttribute("list", boardDTOs);
 		
 		return "board/list";
@@ -29,7 +29,7 @@ public class BoardController {
 	
 	@RequestMapping (value = "detail.iu", method = RequestMethod.GET)
 	public ModelAndView getDetail(BoardDTO boardDTO) throws Exception {
-		System.out.println("게시판 글 상세보기 접속");
+		System.out.println("게시판 글 상세페이지 접속");
 		ModelAndView mv = new ModelAndView();	
 		boardDTO = boardService.getDetail(boardDTO);
 		
@@ -37,6 +37,12 @@ public class BoardController {
 		mv.addObject("detailDto", boardDTO);
 		
 		return mv;
+	}
+	
+	@RequestMapping (value = "update.iu", method = RequestMethod.GET)
+	public void setUpdate()throws Exception {
+		System.out.println("글수정 페이지 접속");
+		
 	}
 	
 }

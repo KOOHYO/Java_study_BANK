@@ -30,6 +30,7 @@
 	</table>
 	<br>
 	<hr>
+	<br>
 	<table border="1">
 		<thead>
 			<tr>
@@ -42,5 +43,9 @@
 			</tr>
 		</tbody>
 	</table>
+	<br>
+	<hr>
+	<br>
+	<button type="button" onclick="location.href='./update.iu'">수정</button>
 </body>
 </html>
