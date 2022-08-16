@@ -1,5 +1,6 @@
 package com.iu.start.di;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component 
@@ -19,8 +20,18 @@ public class Car {
 //		this.engine = new Engine();
 //	}
 	
-	public Car(Engine engine) {
+	private Engine engine;
+	private LeftWheel leftWheel;
+	private RightWheel rightWheel;
+	
+	//객체 생성했을때 주입해주세요
+	@Autowired
+	public Car(Engine engine, LeftWheel leWheel, RightWheel rWheel) {
 		this.engine=engine;
+		
+		this.engine = engine;
+		this.leftWheel = leftWheel;
+		this.rightWheel = rightWheel;
 	}
 	// Engine engine = new Engine();
 	// Car car = new Car(engine);
@@ -29,16 +40,15 @@ public class Car {
 //	{
 //		this.engine = new Engine();
 //	}
-	
-	private Engine engine;
 
 	//5.
 	public Engine getEngine() {
 		return engine;
 	}
-
+	
+	@Autowired
 	public void setEngine(Engine engine) {
-		this.engine = engine;
+		this.engine=engine;
 	}
 	// Car car = new Car();
 	// Engine engine = new Engine();

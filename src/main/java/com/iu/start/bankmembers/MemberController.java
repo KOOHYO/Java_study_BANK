@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,15 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller 
 @RequestMapping(value = "/member/*")
 public class MemberController {
-
+	
+	@Autowired
+	private BankMembersService bankMembersService;
+	
+//	@Autowired
+//	public MemberController(BankMembersDAO bankMembersDAO) {
+//		this.bankMembersDAO = bankMembersDAO;
+//	}
+	
 	// annotation(어너테이션)
 	// @ : 설명+실행
 	
@@ -41,7 +51,7 @@ public class MemberController {
 	@RequestMapping(value = "login.iu", method = RequestMethod.POST)
 	public String login(HttpServletRequest request, BankMembersDTO bankMembersDTO) throws Exception {
 		System.out.println("DB로그인 실행");
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
+		//BankMembersDAO bankMembersDAO = new BankMembersDAO();
 		bankMembersDTO = bankMembersDAO.getLogin(bankMembersDTO);
 		System.out.println(bankMembersDTO);
 		
@@ -65,7 +75,7 @@ public class MemberController {
 	@RequestMapping(value = "join.iu", method = RequestMethod.POST)
 	public String join(BankMembersDTO bankMembersDTO) throws Exception {//매개변수로 String username 이라쓰면 
 		System.out.println("회원가입 POST 실행");
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
+		//BankMembersDAO bankMembersDAO = new BankMembersDAO();
 		
 		//멤버메서드의 매개변수 선언
 		
@@ -112,7 +122,7 @@ public class MemberController {
 	public ModelAndView getSearchByID(String search) throws Exception {
 		System.out.println("아이디 정보 검색중");
 		ModelAndView mv = new ModelAndView();
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
+		//BankMembersDAO bankMembersDAO = new BankMembersDAO();
 		
 		ArrayList<BankMembersDTO> ar = bankMembersDAO.getSearchByID(search);
 		
