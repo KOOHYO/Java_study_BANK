@@ -45,4 +45,10 @@ public class BoardController {
 		
 	}
 	
+	@RequestMapping (value = "update.iu", method = RequestMethod.POST)
+	public void setUpdate(BoardDTO boardDTO)throws Exception {
+		System.out.println("글수정 페이지 접속");
+		
+	}
+	
 }
