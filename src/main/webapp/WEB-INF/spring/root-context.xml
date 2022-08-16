@@ -13,5 +13,18 @@
 	<bean class="com.iu.start.di.Engine" id="engine"></bean>
 	<bean class="com.iu.start.di.LeftWheel" id="leftWheel"></bean>
 	<bean class="com.iu.start.di.RightWheel" id="rightWheel"></bean>
+	<bean class="com.iu.start.di.Car" id="car">
+		<constructor-arg index="0" ref="leftWheel"></constructor-arg>
+		<constructor-arg index="1" ref="rightWheel"></constructor-arg> 
+
+<!-- 	<constructor-arg name="leWheel" ref="leftWheel"></constructor-arg>
+		<constructor-arg name="rWheel" ref="rightWheel"></constructor-arg>
+ -->
+<!--  	<constructor-arg type="com.iu.start.di.Wheel" ref="leftWheel"></constructor-arg>
+		<constructor-arg type="com.iu.start.di.Wheel" ref="rightWheel"></constructor-arg>  
+-->
+		<!-- setter -->
+		<property name="engine" ref="engine"></property>
+	</bean>
 	
 </beans>

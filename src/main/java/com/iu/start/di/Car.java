@@ -21,11 +21,10 @@ public class Car {
 //	}
 	
 	private Engine engine;
-	private LeftWheel leftWheel;
-	private RightWheel rightWheel;
+	private Wheel leftWheel;
+	private Wheel rightWheel;
 	
 	//객체 생성했을때 주입해주세요
-ㄴ
 	public Car(LeftWheel leWheel, RightWheel rWheel) {
 		this.leftWheel = leftWheel;
 		this.rightWheel = rightWheel;
