@@ -2,8 +2,8 @@
 <%@page import="com.iu.start.bankmembers.BankMembersDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
  
-<% ArrayList<BankMembersDTO> ar = (ArrayList<BankMembersDTO>)request.getAttribute("list");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,14 +20,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<%for(BankMembersDTO bankMembersDTO: ar){ %>
-			<tr>
-				<td><%= bankMembersDTO.getUserName() %></td>
-				<td><%= bankMembersDTO.getName() %></td>
-				<td><%= bankMembersDTO.getEmail() %></td>
-				<td><%= bankMembersDTO.getPhone() %></td>
-			</tr>
-			<%} %>
+			<c:forEach items="${requestScope.list}" var="dto">			
+				<tr>
+					<td>${dto.userName}</td>
+					<td>${dto.name}</td>
+					<td>${dto.email}</td>
+					<td>${dto.phone}</td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 </body>
