@@ -2,7 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 여기안에 있는 태그들의 정의는 위에 주소(스키마 : 뼈대)에 있다 -->
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	
+	<!-- 객체 생성, 객체 주입 -->
+	<!-- 객체 생성 -->
+	<!-- Engine engine = new Engine() -->
+	<!-- bean == new 디폴트생성자() -->
+	<bean class="com.iu.start.di.Engine" id="engine"></bean>
+	<bean class="com.iu.start.di.LeftWheel" id="leftWheel"></bean>
+	<bean class="com.iu.start.di.RightWheel" id="rightWheel"></bean>
+	
 </beans>

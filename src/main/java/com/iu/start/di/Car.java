@@ -3,7 +3,7 @@ package com.iu.start.di;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component 
+
 public class Car {
 
 	//Car는 Engine이 없으면 X
@@ -25,11 +25,8 @@ public class Car {
 	private RightWheel rightWheel;
 	
 	//객체 생성했을때 주입해주세요
-	@Autowired
-	public Car(Engine engine, LeftWheel leWheel, RightWheel rWheel) {
-		this.engine=engine;
-		
-		this.engine = engine;
+ㄴ
+	public Car(LeftWheel leWheel, RightWheel rWheel) {
 		this.leftWheel = leftWheel;
 		this.rightWheel = rightWheel;
 	}
@@ -46,7 +43,6 @@ public class Car {
 		return engine;
 	}
 	
-	@Autowired
 	public void setEngine(Engine engine) {
 		this.engine=engine;
 	}

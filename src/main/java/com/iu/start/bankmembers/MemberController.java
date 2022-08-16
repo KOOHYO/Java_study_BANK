@@ -52,7 +52,7 @@ public class MemberController {
 	public String login(HttpServletRequest request, BankMembersDTO bankMembersDTO) throws Exception {
 		System.out.println("DB로그인 실행");
 		//BankMembersDAO bankMembersDAO = new BankMembersDAO();
-		bankMembersDTO = bankMembersDAO.getLogin(bankMembersDTO);
+		bankMembersDTO = bankMembersService.getLogin(bankMembersDTO);
 		System.out.println(bankMembersDTO);
 		
 		HttpSession session = request.getSession();
@@ -99,7 +99,7 @@ public class MemberController {
 //		bankMembersDTO.setPhone(phone);
 		
 		//Bean (객체, DTO, VO)을 선언
-		int result = bankMembersDAO.setJoin(bankMembersDTO);
+		int result = bankMembersService.setJoin(bankMembersDTO);
 		if(result>0) {
 			System.out.println("회원가입 성공!");
 		}else {
@@ -124,7 +124,7 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		//BankMembersDAO bankMembersDAO = new BankMembersDAO();
 		
-		ArrayList<BankMembersDTO> ar = bankMembersDAO.getSearchByID(search);
+		ArrayList<BankMembersDTO> ar = bankMembersService.getSearchByID(search);
 		
 		//경로와 데이터를 함께 보낼때
 		mv.setViewName("member/list");
