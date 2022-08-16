@@ -6,8 +6,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import org.springframework.stereotype.Repository;
+
 import com.iu.start.util.DBConnector;
 
+@Repository
 public class BankBookDAO implements BookDAO {
 
 	//BankBook 테이블에 Insert
@@ -166,7 +169,5 @@ public class BankBookDAO implements BookDAO {
 		
 		return result;
 	}
-
-	
 	
 }

@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.springframework.stereotype.Repository;
+
 import com.iu.start.util.DBConnector;
 
+@Repository
 public class BankAccountDAO {
 
 	public int add(BankAccountDTO bankAccountDTO) throws Exception {

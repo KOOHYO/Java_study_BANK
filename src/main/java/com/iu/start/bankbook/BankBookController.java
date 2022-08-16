@@ -2,6 +2,7 @@ package com.iu.start.bankbook;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,12 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/bankbook/*")
 public class BankBookController {
 	
+	@Autowired
+	private BankBookService bankBookService;
+	
 	@RequestMapping(value = "update.iu", method = RequestMethod.POST)
 	public void setUpdate(BankBookDTO bankBookDTO) throws Exception {
-		BankBookDAO bankBookDAO = new BankBookDAO();
 		ModelAndView mv = new ModelAndView();
 		
-		int result = bankBookDAO.setUpdate(bankBookDTO);
+		int result = bankBookService.setUpdate(bankBookDTO);
 		if(result>0) {
 			System.out.println("수정 성공");
 		}else {
@@ -28,8 +31,7 @@ public class BankBookController {
 	@RequestMapping(value = "update.iu", method = RequestMethod.GET)
 	public String update(BankBookDTO bankBookDTO, Model model)throws Exception{
 		System.out.println("Update 페이지 접속");
-		BankBookDAO bankBookDAO = new BankBookDAO();
-		bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
+		bankBookDTO = bankBookService.getDetail(bankBookDTO);
 		
 		model.addAttribute("detail", bankBookDTO);
 		
@@ -39,9 +41,8 @@ public class BankBookController {
 	@RequestMapping(value = "list.iu", method=RequestMethod.GET)
 	public String list(Model model) throws Exception {
 		System.out.println("List 페이지 접속");
-		BankBookDAO bankBookDAO = new BankBookDAO();
 		
-		ArrayList<BankBookDTO> ar = bankBookDAO.getList();
+		ArrayList<BankBookDTO> ar = bankBookService.getList();
 		
 		//return "bankbook/list"; 리턴URL과 요청URL이 똑같으면 리턴 생략가능(viod)
 		
@@ -55,10 +56,7 @@ public class BankBookController {
 		System.out.println("Detail 페이지 접속");
 		//스프링이 하는 과정을 우리가 직접 객체를 만들어서 보내도 됀다
 		ModelAndView mv = new ModelAndView();
-		BankBookDAO bankBookDAO = new BankBookDAO();
-		System.out.println(bankBookDTO.getBookNum());
-		System.out.println(bankBookDTO.getBookName());
-		bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
+		bankBookDTO = bankBookService.getDetail(bankBookDTO);
 		//return "bankbook/detail";
 		mv.setViewName("bankbook/detail");
 		mv.addObject("detail", bankBookDTO);
@@ -82,11 +80,10 @@ public class BankBookController {
 	@RequestMapping(value = "add.iu", method=RequestMethod.POST)
 	public ModelAndView add(BankBookDTO bankBookDTO) throws Exception {
 		System.out.println("Add 페이지 접속");
-		BankBookDAO bankBookDAO = new BankBookDAO();
 		System.out.println(bankBookDTO.getBookName());
 		ModelAndView mv = new ModelAndView();
 		
-		int result = bankBookDAO.setBankBook(bankBookDTO);
+		int result = bankBookService.setBankBook(bankBookDTO);
 		if(result>0) {
 			System.out.println("통장 개설 성공!");
 		}else {

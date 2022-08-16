@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/member/*")
 public class MemberController {
 
+	@Autowired
+	private BankMembersService bankMembersService;
+	
 	// annotation(어너테이션)
 	// @ : 설명+실행
 	
@@ -41,8 +45,7 @@ public class MemberController {
 	@RequestMapping(value = "login.iu", method = RequestMethod.POST)
 	public String login(HttpServletRequest request, BankMembersDTO bankMembersDTO) throws Exception {
 		System.out.println("DB로그인 실행");
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
-		bankMembersDTO = bankMembersDAO.getLogin(bankMembersDTO);
+		bankMembersDTO = bankMembersService.getLogin(bankMembersDTO);
 		System.out.println(bankMembersDTO);
 		
 		HttpSession session = request.getSession();
@@ -65,7 +68,6 @@ public class MemberController {
 	@RequestMapping(value = "join.iu", method = RequestMethod.POST)
 	public String join(BankMembersDTO bankMembersDTO) throws Exception {//매개변수로 String username 이라쓰면 
 		System.out.println("회원가입 POST 실행");
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
 		
 		//멤버메서드의 매개변수 선언
 		
@@ -89,7 +91,7 @@ public class MemberController {
 //		bankMembersDTO.setPhone(phone);
 		
 		//Bean (객체, DTO, VO)을 선언
-		int result = bankMembersDAO.setJoin(bankMembersDTO);
+		int result = bankMembersService.setJoin(bankMembersDTO);
 		if(result>0) {
 			System.out.println("회원가입 성공!");
 		}else {
@@ -112,9 +114,8 @@ public class MemberController {
 	public ModelAndView getSearchByID(String search) throws Exception {
 		System.out.println("아이디 정보 검색중");
 		ModelAndView mv = new ModelAndView();
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
 		
-		ArrayList<BankMembersDTO> ar = bankMembersDAO.getSearchByID(search);
+		ArrayList<BankMembersDTO> ar = bankMembersService.getSearchByID(search);
 		
 		//경로와 데이터를 함께 보낼때
 		mv.setViewName("member/list");

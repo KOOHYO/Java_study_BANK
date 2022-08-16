@@ -2,6 +2,7 @@ package com.iu.start.bankaccount;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +15,9 @@ import com.iu.start.bankmembers.BankMembersDTO;
 //한개이면 value 생략가능!
 @RequestMapping("/bankAccount/*")
 public class BankAccountController {
-	private BankAccountDAO bankAccountDAO;
 	
-	public BankAccountController() {
-		this.bankAccountDAO = new BankAccountDAO();
-	}
+	@Autowired
+	private BankAccountService bankAccountService;
 	
 	@RequestMapping(value = "add.iu", method = RequestMethod.GET)
 	public String add(BankAccountDTO bankAccountDTO, HttpSession session )throws Exception{
@@ -30,7 +29,7 @@ public class BankAccountController {
 		BankMembersDTO bankMembersDTO = (BankMembersDTO)session.getAttribute("member");
 		bankAccountDTO.setUserName(bankMembersDTO.getUserName());
 		
-		int result = this.bankAccountDAO.add(bankAccountDTO);
+		int result = this.bankAccountService.add(bankAccountDTO);
 		if(result>0) {
 			System.out.println("통장가입성공!");
 		}else {
