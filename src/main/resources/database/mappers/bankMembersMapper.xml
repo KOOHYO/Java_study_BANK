@@ -9,6 +9,6 @@
 	<!-- id속성 중복되면 안됀다! -->
 	<!-- id는 DAO의 메서드명과 동일하게 작성 -->
 	<select id="getLogin" resultType="com.iu.start.bankmembers.BankMembersDTO">
-		SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=#{userName} AND PASSWORD=#{}
+		SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=#{userName} AND PASSWORD=#{passWord}
 	</select>
 </mapper>
