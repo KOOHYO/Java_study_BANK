@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class BankMembersService {
 	}
 	
 	//검색어를 입력해서 ID를 찾기
-	public ArrayList<BankMembersDTO> getSearchByID(String search) throws Exception {
+	public List<BankMembersDTO> getSearchByID(String search) throws Exception {
 		return bankMembersDAO.getSearchByID(search);
 	}
 	

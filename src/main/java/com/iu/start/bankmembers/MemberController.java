@@ -1,6 +1,6 @@
 package com.iu.start.bankmembers;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -115,7 +115,7 @@ public class MemberController {
 		System.out.println("아이디 정보 검색중");
 		ModelAndView mv = new ModelAndView();
 		
-		ArrayList<BankMembersDTO> ar = bankMembersService.getSearchByID(search);
+		List<BankMembersDTO> ar = bankMembersService.getSearchByID(search);
 		
 		//경로와 데이터를 함께 보낼때
 		mv.setViewName("member/list");
