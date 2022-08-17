@@ -13,8 +13,9 @@
 <P>  The time on the server is ${serverTime}. </P>
 
 <c:if test="${empty sessionScope.member}">
-<a href="./member/login.iu">Login</a>
-<a href="./member/join.iu">Join</a>
+<a href="./member/login.iu">로그인</a>
+<a href="./member/join.iu">회원가입</a>
+<a href="./member/list.iu">회원리스트</a>
 </c:if>
 
 <c:if test="${not empty sessionScope.member}">
