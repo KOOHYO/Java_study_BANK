@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+		<!DOCTYPE mapper
+		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapper의 구분은 namespace의 구분은의 값으로 구분 -->
+<!-- Mapper의 값은 사용할 DAO의 풀패키지명으로 작성 중복되면 안돼기 때문! -->
+<mapper namespace="com.iu.start.bankmembers.BankMembersDAO">
+	<!-- id속성 중복되면 안됀다! -->
+	<!-- id는 DAO의 메서드명과 동일하게 작성 -->
+	<select id="getLogin" resultType="com.iu.start.bankmembers.BankMembersDTO">
+		SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=#{userName} AND PASSWORD=#{}
+	</select>
+</mapper>
