@@ -121,6 +121,7 @@ $RECYCLE.BIN/
 
 # My lgnore Files
 DBConnector.java
+database.properties
 
 target/
 
