@@ -32,12 +32,12 @@
 		</tbody>
 	</table>
 	
-	<c:if test="${empty sessionScope.member}">
+	<c:if test="${not empty sessionScope.member}">
 	<a href="../member/login.iu">로그인</a>
 	<a href="../member/join.iu">회원가입하기</a>
 	</c:if>
 	
-	<c:if test="${not empty sessionScope.member}">
+	<c:if test="${empty sessionScope.member}">
 	<a href="./update.iu?bookNum=${detail.bookNum}">통장수정</a>
 	<a href="./delete.iu?bookNum=${detail.bookNum}">통장삭제</a>
 	<a href="../bankAccount/add.iu?bookNum=${detail.bookNum}">통장가입하기</a>

@@ -16,8 +16,16 @@ public class BankBookController {
 	@Autowired
 	private BankBookService bankBookService;
 	
+	@RequestMapping(value = "delete.iu", method = RequestMethod.GET)
+	public ModelAndView delete(BankBookDTO bankBookDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = bankBookService.setDelete(bankBookDTO);
+		mv.setViewName("redirect:./list.iu");
+		return mv;		
+	}
+	
 	@RequestMapping(value = "update.iu", method = RequestMethod.POST)
-	public void setUpdate(BankBookDTO bankBookDTO) throws Exception {
+	public void Update(BankBookDTO bankBookDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
 		int result = bankBookService.setUpdate(bankBookDTO);
