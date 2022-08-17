@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,38 +32,8 @@ public class BankMembersDAO implements MembersDAO {
 	
 	//검색어를 입력해서 ID를 찾기
 	@Override
-	public ArrayList<BankMembersDTO> getSearchByID(String search) throws Exception {
-		ArrayList<BankMembersDTO> bankMembersDTOs = new ArrayList<BankMembersDTO>();
-		//1. DB 연결
-		Connection con = DBConnector.getConnection();
-		
-		//2. SQL문 작성
-		String sql = "SELECT * "
-				+ "FROM BANKMEMBERS "
-				+ "WHERE USERNAME LIKE ? ORDER BY USERNAME ASC";
-		
-		//3. 미리전송
-		PreparedStatement st = con.prepareStatement(sql);
-		
-		//4. ?값 넣기
-		st.setString(1, "%"+search+"%");
-		
-		//5. 최종 전송
-		ResultSet rs = st.executeQuery();
-		
-		while(rs.next()) {
-			BankMembersDTO bankMembersDTO = new BankMembersDTO();
-			bankMembersDTO.setUserName(rs.getString("USERNAME"));
-			bankMembersDTO.setPassWord(rs.getString("PASSWORD"));
-			bankMembersDTO.setName(rs.getString("NAME"));
-			bankMembersDTO.setEmail(rs.getString("EMAIL"));
-			bankMembersDTO.setPhone(rs.getString("PHONE"));
-			bankMembersDTOs.add(bankMembersDTO);
-		}
-		
-		//6. 자원해제
-		DBConnector.disConnect(rs, st, con);
-		return bankMembersDTOs;
+	public List<BankMembersDTO> getSearchByID(String search) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"getSearchByID",search);
 	}
 	
 }
