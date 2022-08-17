@@ -11,4 +11,11 @@
 	<select id="getLogin" resultType="com.iu.start.bankmembers.BankMembersDTO">
 		SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=#{userName} AND PASSWORD=#{passWord}
 	</select>
+	<insert id="setJoin">
+		INSERT INTO BANKMEMBERS VALUES (#{userName}, #{passWord}, #{name}, #{email}, #{phone})
+	</insert>
+	<!-- String 클래스에 Getter가 없다는 에러가 가끔뜬다 클래스선언 후 그안에 값을 담고 해야한다 -->
+	<select id="getSearchByID" parameterType="java.lang.String" resultType="com.iu.start.bankmembers.BankMembersDTO" >
+		SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE ? ORDER BY USERNAME ASC
+	</select>
 </mapper>
