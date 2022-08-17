@@ -30,5 +30,8 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<c:if test="${empty sessionScope.member}">
+		<button type="button" onclick="location.href='./search'">회원검색</button>
+	</c:if>
 </body>
 </html>
