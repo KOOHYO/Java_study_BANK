@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Add Page</h1>
-	<form action="">
+	<h1>Update Page</h1>
+	<form action="./update.iu" method="POST">
 		<div>
 			<input type="text" name=noticeNum readonly="readonly" value="${dto.noticeNum}">
 			제목을 수정하세요
