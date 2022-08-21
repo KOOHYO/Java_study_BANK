@@ -8,7 +8,7 @@ public class NoticeDTO {
 	private String noticeTitle;
 	private String noticeContents;
 	private String noticeWriter;
-	private Date noticeRedate;
+	private Date noticeRegdate;
 	private Long noticeHit;
 	
 	public Long getNoticeNum() {
@@ -35,11 +35,11 @@ public class NoticeDTO {
 	public void setNoticeWriter(String noticeWriter) {
 		this.noticeWriter = noticeWriter;
 	}
-	public Date getNoticeRedate() {
-		return noticeRedate;
+	public Date getNoticeRegdate() {
+		return noticeRegdate;
 	}
-	public void setNoticeRedate(Date noticeRedate) {
-		this.noticeRedate = noticeRedate;
+	public void setNoticeRegdate(Date noticeRedate) {
+		this.noticeRegdate = noticeRedate;
 	}
 	public Long getNoticeHit() {
 		return noticeHit;

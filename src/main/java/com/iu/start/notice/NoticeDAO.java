@@ -35,7 +35,7 @@ public class NoticeDAO {
 			noticeDTO.setNoticeTitle(rs.getString("NOTICETITLE"));
 			noticeDTO.setNoticeContents(rs.getString("NOTICETCONTENTS"));
 			noticeDTO.setNoticeWriter(rs.getString("NOTICEWRITER"));
-			noticeDTO.setNoticeRedate(rs.getDate("NOTICEREGDATE"));
+			noticeDTO.setNoticeRegdate(rs.getDate("NOTICEREGDATE"));
 			noticeDTO.setNoticeHit(rs.getLong("NOTICEHIT"));
 			noticeDTOs.add(noticeDTO);
 		}
@@ -66,7 +66,7 @@ public class NoticeDAO {
 			noticeDTO2.setNoticeTitle(rs.getString("NOTICETITLE"));
 			noticeDTO2.setNoticeContents(rs.getString("NOTICETCONTENTS"));
 			noticeDTO2.setNoticeWriter(rs.getString("NOTICEWRITER"));
-			noticeDTO2.setNoticeRedate(rs.getDate("NOTICEREGDATE"));
+			noticeDTO2.setNoticeRegdate(rs.getDate("NOTICEREGDATE"));
 			noticeDTO2.setNoticeHit(rs.getLong("NOTICEHIT"));
 		}
 		

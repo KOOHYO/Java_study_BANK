@@ -42,16 +42,16 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "update.iu", method = RequestMethod.GET)
-	public void setUpdate()throws Exception{
+	public String setUpdate(NoticeDTO noticeDTO, Model model)throws Exception{
 		System.out.println("게시판 글 수정");
 		
+		model.addAttribute("dto", noticeDTO);
 		
-		int result = 
-		
+		return "notice/detail";
 	}
 	
-	@RequestMapping(value = "update.iu", method = RequestMethod.GET)
-	public String setUpdate(NoticeDTO noticeDTO, Model model)throws Exception{
+	@RequestMapping(value = "update.iu", method = RequestMethod.POST)
+	public String setUpdate(NoticeDTO noticeDTO)throws Exception{
 		System.out.println("게시판 글 수정");
 		
 		return "redirect:../";

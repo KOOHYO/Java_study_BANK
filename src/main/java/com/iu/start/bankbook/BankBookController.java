@@ -16,6 +16,16 @@ public class BankBookController {
 	@Autowired
 	private BankBookService bankBookService;
 	
+	@RequestMapping(value = "update.iu", method = RequestMethod.GET)
+	public String update(BankBookDTO bankBookDTO, Model model)throws Exception{
+		System.out.println("Update 페이지 접속");
+		bankBookDTO = bankBookService.getDetail(bankBookDTO);
+		
+		model.addAttribute("detail", bankBookDTO);
+		
+		return "bankbook/update";
+	}
+	
 	@RequestMapping(value = "update.iu", method = RequestMethod.POST)
 	public void setUpdate(BankBookDTO bankBookDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -26,16 +36,6 @@ public class BankBookController {
 		}else {
 			System.out.println("수정 실패");
 		}
-	}
-	
-	@RequestMapping(value = "update.iu", method = RequestMethod.GET)
-	public String update(BankBookDTO bankBookDTO, Model model)throws Exception{
-		System.out.println("Update 페이지 접속");
-		bankBookDTO = bankBookService.getDetail(bankBookDTO);
-		
-		model.addAttribute("detail", bankBookDTO);
-		
-		return "bankbook/update";
 	}
 
 	@RequestMapping(value = "list.iu", method=RequestMethod.GET)
