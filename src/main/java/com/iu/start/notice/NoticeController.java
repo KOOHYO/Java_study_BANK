@@ -1,4 +1,4 @@
-package com.iu.start.board;
+package com.iu.start.notice;
 
 import java.util.ArrayList;
 
@@ -12,15 +12,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value = "/board/*")
-public class BoardController {
+public class NoticeController {
 	
 	@Autowired
-	private BoardService boardService;
+	private NoticeService boardService;
 	
 	@RequestMapping (value = "list.iu", method = RequestMethod.GET)
 	public String getList(Model model)throws Exception {
 		System.out.println("게시판목록 접속");
-		ArrayList<BoardDTO> boardDTOs = boardService.getList();
+		ArrayList<NoticeDTO> boardDTOs = boardService.getList();
 
 		model.addAttribute("list", boardDTOs);
 		
@@ -28,7 +28,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping (value = "detail.iu", method = RequestMethod.GET)
-	public ModelAndView getDetail(BoardDTO boardDTO) throws Exception {
+	public ModelAndView getDetail(NoticeDTO boardDTO) throws Exception {
 		System.out.println("게시판 글 상세보기 접속");
 		ModelAndView mv = new ModelAndView();	
 		boardDTO = boardService.getDetail(boardDTO);

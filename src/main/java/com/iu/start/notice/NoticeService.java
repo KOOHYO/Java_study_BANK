@@ -1,4 +1,4 @@
-package com.iu.start.board;
+package com.iu.start.notice;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,16 +11,16 @@ import org.springframework.stereotype.Service;
 import com.iu.start.util.DBConnector;
 
 @Service
-public class BoardService {
+public class NoticeService {
 
 	@Autowired
-	private BoardDAO boardDAO;
+	private NoticeDAO boardDAO;
 	
-	public ArrayList<BoardDTO> getList()throws Exception{
+	public ArrayList<NoticeDTO> getList()throws Exception{
 		return boardDAO.getList();
 	}
 	
-	public BoardDTO getDetail(BoardDTO boardDTO)throws Exception{
+	public NoticeDTO getDetail(NoticeDTO boardDTO)throws Exception{
 		return boardDAO.getDetail(boardDTO);
 	}
 	

@@ -1,4 +1,4 @@
-package com.iu.start.board;
+package com.iu.start.notice;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,10 +10,10 @@ import org.springframework.stereotype.Repository;
 import com.iu.start.util.DBConnector;
 
 @Repository
-public class BoardDAO {
+public class NoticeDAO {
 
-	public ArrayList<BoardDTO> getList()throws Exception{
-		ArrayList<BoardDTO> boardDTOs = new ArrayList<BoardDTO>();
+	public ArrayList<NoticeDTO> getList()throws Exception{
+		ArrayList<NoticeDTO> boardDTOs = new ArrayList<NoticeDTO>();
 		
 		//1. DB연결
 		Connection con = DBConnector.getConnection();
@@ -30,13 +30,13 @@ public class BoardDAO {
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
-			BoardDTO boardDTO = new BoardDTO();
-			boardDTO.setBoardNum(rs.getLong("BOARDNUM"));
-			boardDTO.setBoardTitle(rs.getString("BOARDTITLE"));
-			boardDTO.setBoardDetail(rs.getString("BOARDDETAIL"));
-			boardDTO.setBoardUserName(rs.getString("BOARDUSERNAME"));
-			boardDTO.setBoardDate(rs.getDate("BOARDDATE"));
-			boardDTO.setBoardHits(rs.getInt("BOARDHITS"));
+			NoticeDTO boardDTO = new NoticeDTO();
+			boardDTO.setNoticeNum(rs.getLong("NOTICENUM"));
+			boardDTO.setNoticeTitle(rs.getString("NOTICETITLE"));
+			boardDTO.setNoticeContents(rs.getString("NOTICETCONTENTS"));
+			boardDTO.setNoticeWriter(rs.getString("BOARDUSERNAME"));
+			boardDTO.setNoticeRedate(rs.getDate("BOARDDATE"));
+			boardDTO.setNoticeHit(rs.getLong("BOARDHIT"));
 			boardDTOs.add(boardDTO);
 		}
 		
@@ -47,8 +47,8 @@ public class BoardDAO {
 		
 	}
 	
-	public BoardDTO getDetail(BoardDTO boardDTO)throws Exception{
-		BoardDTO boardDTO2=null;
+	public NoticeDTO getDetail(NoticeDTO boardDTO)throws Exception{
+		NoticeDTO boardDTO2=null;
 		
 		Connection con = DBConnector.getConnection();
 		
@@ -61,7 +61,7 @@ public class BoardDAO {
 		ResultSet rs = st.executeQuery();
 		
 		if(rs.next()) {
-			boardDTO2 = new BoardDTO();
+			boardDTO2 = new NoticeDTO();
 			boardDTO2.setBoardNum(rs.getLong("BOARDNUM"));
 			boardDTO2.setBoardTitle(rs.getString("BOARDTITLE"));
 			boardDTO2.setBoardDetail(rs.getString("BOARDDETAIL"));
