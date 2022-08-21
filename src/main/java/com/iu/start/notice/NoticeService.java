@@ -24,4 +24,8 @@ public class NoticeService {
 		return noticeDAO.getDetail(noticeDTO);
 	}
 	
+	public int setUpdate(NoticeDTO noticeDTO)throws Exception{
+		return noticeDAO.setUpdate(noticeDTO);
+	}
+	
 }
