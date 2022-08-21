@@ -46,7 +46,7 @@ public class NoticeController {
 		
 		model.addAttribute("dto", noticeDTO);
 		
-		return "notice/detail";
+		return "notice/update";
 	}
 	
 	@RequestMapping(value = "update.iu", method = RequestMethod.POST)
