@@ -19,9 +19,7 @@
 	        비밀번호를 입력 하세요<br>
 	        <input type="password" value="123" name="passWord"><br> <input type="submit" value="로그인"><br>
 	    </div>
-	    <a href="study/index.html">Home 절대경로</a>
-	    <a href="./study/index.html">Home 상대경로1</a>
-	    <a href="/study/index.html">Home 상대경로2</a>
+	    <a href="/">Home</a>
     </form>
 	
 </body>
