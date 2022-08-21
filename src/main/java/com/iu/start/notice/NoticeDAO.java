@@ -65,9 +65,9 @@ public class NoticeDAO {
 			noticeDTO2.setNoticeNum(rs.getLong("NOTICENUM"));
 			noticeDTO2.setNoticeTitle(rs.getString("NOTICETITLE"));
 			noticeDTO2.setNoticeContents(rs.getString("NOTICETCONTENTS"));
-			noticeDTO2.setBoardUserName(rs.getString("BOARDUSERNAME"));
-			noticeDTO2.setBoardDate(rs.getDate("BOARDDATE"));
-			noticeDTO2.setBoardHits(rs.getInt("BOARDHITS"));
+			noticeDTO2.setNoticeWriter(rs.getString("NOTICEWRITER"));
+			noticeDTO2.setNoticeRedate(rs.getDate("NOTICEREGDATE"));
+			noticeDTO2.setNoticeHit(rs.getLong("NOTICEHIT"));
 		}
 		
 		DBConnector.disConnect(rs, st, con);
