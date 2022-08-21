@@ -26,7 +26,7 @@
 					<th>${pageScope.dto.noticeNum}</th>
 					<th><a href="detail.iu?noticeNum=${dto.noticeNum}">${pageScope.dto.noticeTitle}</a></th>
 					<th>${pageScope.dto.noticeWriter}</th>
-					<th>${pageScope.dto.noticeRedate}</th>
+					<th>${pageScope.dto.noticeRegdate}</th>
 					<th>${pageScope.dto.noticeHit}</th>
 				</tr>
 			</c:forEach>

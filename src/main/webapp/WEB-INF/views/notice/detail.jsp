@@ -23,7 +23,7 @@
 				<td>${detailDto.noticeNum}</td>
 				<td>${detailDto.noticeTitle}</td>
 				<td>${detailDto.noticeWriter}</td>
-				<td>${detailDto.noticeRedate}</td>
+				<td>${detailDto.noticeRegdate}</td>
 				<td>${detailDto.noticeHit}</td>
 			</tr>
 		</tbody>
@@ -38,7 +38,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>${detailDto.noticeContents}</td>
+				<td>${dto.noticeContents}</td>
 			</tr>
 		</tbody>
 	</table>

@@ -33,7 +33,7 @@ public class NoticeDAO {
 			NoticeDTO noticeDTO = new NoticeDTO();
 			noticeDTO.setNoticeNum(rs.getLong("NOTICENUM"));
 			noticeDTO.setNoticeTitle(rs.getString("NOTICETITLE"));
-			noticeDTO.setNoticeContents(rs.getString("NOTICETCONTENTS"));
+			noticeDTO.setNoticeContents(rs.getString("NOTICECONTENTS"));
 			noticeDTO.setNoticeWriter(rs.getString("NOTICEWRITER"));
 			noticeDTO.setNoticeRegdate(rs.getDate("NOTICEREGDATE"));
 			noticeDTO.setNoticeHit(rs.getLong("NOTICEHIT"));
@@ -64,7 +64,7 @@ public class NoticeDAO {
 			noticeDTO2 = new NoticeDTO();
 			noticeDTO2.setNoticeNum(rs.getLong("NOTICENUM"));
 			noticeDTO2.setNoticeTitle(rs.getString("NOTICETITLE"));
-			noticeDTO2.setNoticeContents(rs.getString("NOTICETCONTENTS"));
+			noticeDTO2.setNoticeContents(rs.getString("NOTICECONTENTS"));
 			noticeDTO2.setNoticeWriter(rs.getString("NOTICEWRITER"));
 			noticeDTO2.setNoticeRegdate(rs.getDate("NOTICEREGDATE"));
 			noticeDTO2.setNoticeHit(rs.getLong("NOTICEHIT"));
@@ -81,7 +81,7 @@ public class NoticeDAO {
 		Connection con = DBConnector.getConnection();
 		
 		//2. SQL문 작성
-		String sql = "UPDATE NOTICE SET NOTICETITLE=?, NOTICETCONTENTS=? WHERE NOTICENUM=?";
+		String sql = "UPDATE NOTICE SET NOTICETITLE=?, NOTICECONTENTS=? WHERE NOTICENUM=?";
 		
 		//3. 미리전송
 		PreparedStatement st = con.prepareStatement(sql);

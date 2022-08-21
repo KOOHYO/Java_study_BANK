@@ -2,7 +2,6 @@ package com.iu.start.notice;
 
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,10 +50,20 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "update.iu", method = RequestMethod.POST)
-	public String setUpdate(NoticeDTO noticeDTO)throws Exception{
+	public ModelAndView setUpdate(NoticeDTO noticeDTO)throws Exception{
 		System.out.println("게시판 글 수정");
+		ModelAndView mv = new ModelAndView();
 		
-		return "redirect:../";
+		int result = noticeService.setUpdate(noticeDTO);
+		if(result>0) {
+			System.out.println("수정성공!");
+			mv.setViewName("notice/list.iu");
+			mv.addObject("dto", noticeDTO);	
+		}else {
+			System.out.println("수정실패!");
+		}
+		
+		return mv;
 	}
 	
 }
