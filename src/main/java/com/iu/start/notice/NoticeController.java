@@ -2,6 +2,8 @@ package com.iu.start.notice;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +39,22 @@ public class NoticeController {
 		mv.addObject("detailDto", noticeDTO);
 		
 		return mv;
+	}
+	
+	@RequestMapping(value = "update.iu", method = RequestMethod.GET)
+	public void setUpdate()throws Exception{
+		System.out.println("게시판 글 수정");
+		
+		
+		int result = 
+		
+	}
+	
+	@RequestMapping(value = "update.iu", method = RequestMethod.GET)
+	public String setUpdate(NoticeDTO noticeDTO, Model model)throws Exception{
+		System.out.println("게시판 글 수정");
+		
+		return "redirect:../";
 	}
 	
 }

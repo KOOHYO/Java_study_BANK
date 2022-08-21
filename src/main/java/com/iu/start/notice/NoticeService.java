@@ -14,14 +14,14 @@ import com.iu.start.util.DBConnector;
 public class NoticeService {
 
 	@Autowired
-	private NoticeDAO boardDAO;
+	private NoticeDAO noticeDAO;
 	
 	public ArrayList<NoticeDTO> getList()throws Exception{
-		return boardDAO.getList();
+		return noticeDAO.getList();
 	}
 	
-	public NoticeDTO getDetail(NoticeDTO boardDTO)throws Exception{
-		return boardDAO.getDetail(boardDTO);
+	public NoticeDTO getDetail(NoticeDTO noticeDTO)throws Exception{
+		return noticeDAO.getDetail(noticeDTO);
 	}
 	
 }

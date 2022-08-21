@@ -75,4 +75,31 @@ public class NoticeDAO {
 		return noticeDTO2;
 	}
 	
+	public int setUpdate(NoticeDTO noticeDTO)throws Exception{
+		
+		//1. DB연결
+		Connection con = DBConnector.getConnection();
+		
+		//2. SQL문 작성
+		String sql = "UPDATE NOTICE SET NOTICETITLE=?, NOTICETCONTENTS=? WHERE NOTICENUM=?";
+		
+		//3. 미리전송
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		//4. ?값 세팅
+		st.setString(1, noticeDTO.getNoticeTitle());
+		st.setString(2, noticeDTO.getNoticeContents());
+		st.setLong(3, noticeDTO.getNoticeNum());
+		
+		//5. 최종전송
+		int result = st.executeUpdate();
+		
+		
+		//6. 자원해제
+		DBConnector.disConnect(st, con);
+		
+		return result;
+		
+	}
+	
 }

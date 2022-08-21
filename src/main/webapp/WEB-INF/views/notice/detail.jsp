@@ -42,5 +42,6 @@
 			</tr>
 		</tbody>
 	</table>
+	<a href="./add.iu">글 수정하기</a>
 </body>
 </html>
