@@ -170,4 +170,22 @@ public class BankBookDAO implements BookDAO {
 		return result;
 	}
 	
+	public int setDelete(BankBookDTO bankBookDTO)throws Exception{
+		
+		Connection con = DBConnector.getConnection();
+		
+		String sql="DELETE BANKBOOK WHERE BOOKNUM=?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setLong(1, bankBookDTO.getBookNum());
+		
+		int result = st.executeUpdate();
+		
+		DBConnector.disConnect(st, con);
+		
+		return result;
+		
+	}
+	
 }
