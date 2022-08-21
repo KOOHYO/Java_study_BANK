@@ -20,7 +20,7 @@
 		<input type="text" name="noticeContents">
 		<br>
 		작성자 
-		<input type="text" name="noticeWriter">
+		<input type="text" name="noticeWriter" readonly="readonly" value="${sessionScope.member.userName}">
 		<br>
 		<input type="submit" value="글 등록 완료"><input type="reset" value="초기화">
 		<!-- 위에 말고 밑에는 가능 <butoon type="submit">Add</button> -->

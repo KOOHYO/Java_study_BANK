@@ -32,5 +32,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<a href="./add.iu?userName=${sessionScope.member.userName}">글 등록</a>
 </body>
 </html>
