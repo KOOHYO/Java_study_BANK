@@ -1,6 +1,7 @@
 package com.iu.start.bankbook;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -91,7 +92,6 @@ public class BankBookController {
 	@RequestMapping(value = "add.iu", method=RequestMethod.POST)
 	public ModelAndView add(BankBookDTO bankBookDTO) throws Exception {
 		System.out.println("Add 페이지 접속");
-		System.out.println(bankBookDTO.getBookName());
 		ModelAndView mv = new ModelAndView();
 		
 		int result = bankBookService.setBankBook(bankBookDTO);

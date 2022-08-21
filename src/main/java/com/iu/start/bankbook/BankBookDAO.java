@@ -20,11 +20,12 @@ public class BankBookDAO implements BookDAO {
 	//디비에서 컬럼 데이터타입을 변경해야함!
 	@Override
 	public int setBankBook(BankBookDTO bankBookDTO) throws Exception {
+		
 		//1. DB연결
 		Connection con = DBConnector.getConnection();
 				
 		//2. SQL문작성
-		String sql = "INSERT INTO BANKBOOK VALUES(?, ?, ?, 1)";
+		String sql = "INSERT INTO BANKBOOK (BOOKNUM, BOOKNAME, BOOKRATE, BOOKSALE) VALUES(?, ?, ?, 1)";
 		
 		//3. 미리전송
 		PreparedStatement st = con.prepareStatement(sql);
