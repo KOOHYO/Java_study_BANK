@@ -1,7 +1,7 @@
 package com.iu.start.notice;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +21,7 @@ public class NoticeController {
 	@RequestMapping (value = "list.iu", method = RequestMethod.GET)
 	public String getList(Model model)throws Exception {
 		System.out.println("게시판목록 접속");
-		ArrayList<NoticeDTO> noticeDTOs = noticeService.getList();
+		List<NoticeDTO> noticeDTOs = noticeService.getList();
 
 		model.addAttribute("list", noticeDTOs);
 		

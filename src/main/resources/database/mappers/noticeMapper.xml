@@ -3,4 +3,13 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="연결할 DAO의 FQDN(풀패키지명.클래스명)"></mapper>
+<mapper namespace="com.iu.start.notice.NoticeDAO">
+	<select id="getList" parameterType="NoticeDTO" resultType="NoticeDTO">
+		SELECT * FROM NOTICE ORDER BY NOTICENUM DESC
+	</select>
+	
+	<select id="getDetail" parameterType="NoticeDTO" resultType="NoticeDTO">
+		SELECT * FROM NOTICE WHERE NOTICENUM = #{noticeNum}
+	</select>
+	
+</mapper>
