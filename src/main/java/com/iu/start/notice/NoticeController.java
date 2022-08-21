@@ -41,29 +41,59 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "update.iu", method = RequestMethod.GET)
-	public String setUpdate(NoticeDTO noticeDTO, Model model)throws Exception{
+	public void setUpdate(NoticeDTO noticeDTO, Model model)throws Exception{
 		System.out.println("게시판 글 수정");
+		noticeDTO = noticeService.getDetail(noticeDTO);
 		
 		model.addAttribute("dto", noticeDTO);
-		
-		return "notice/update";
+		//여기서 리턴안하면 벨류값과 똑같은 JSP페이지로 이동
 	}
 	
 	@RequestMapping(value = "update.iu", method = RequestMethod.POST)
-	public ModelAndView setUpdate(NoticeDTO noticeDTO)throws Exception{
+	public String setUpdate(NoticeDTO noticeDTO)throws Exception{
 		System.out.println("게시판 글 수정");
-		ModelAndView mv = new ModelAndView();
-		
+	
 		int result = noticeService.setUpdate(noticeDTO);
 		if(result>0) {
 			System.out.println("수정성공!");
-			mv.setViewName("notice/list.iu");
-			mv.addObject("dto", noticeDTO);	
+
 		}else {
 			System.out.println("수정실패!");
 		}
 		
-		return mv;
+		return "redirect:./detail.iu?noticeNum="+noticeDTO.getNoticeNum();
+	}
+	
+	@RequestMapping(value = "delete.iu", method = RequestMethod.GET)
+	public String setDelete(NoticeDTO noticeDTO)throws Exception{
+		System.out.println("글 삭제");
+		int result = noticeService.setDelete(noticeDTO);
+		if(result>0) {
+			System.out.println("글 삭제 성공!");
+		}else {
+			System.out.println("글 삭제 실패..");
+		}
+		
+		return "redirect:./list.iu";
+	}
+	
+	@RequestMapping(value = "add.iu", method = RequestMethod.GET)
+	public void setNotice()throws Exception{
+		System.out.println("글 등록페이지 접속");
+	}
+	
+	@RequestMapping(value = "add.iu", method = RequestMethod.POST)
+	public String setNotice(NoticeDTO noticeDTO)throws Exception{
+		System.out.println("글 등록페이지 접속");
+		
+		int result = noticeService.setNotices(noticeDTO);
+		if(result>0) {
+			System.out.println("글 등록 성공!");
+		}else {
+			System.out.println("글 등록 실패..");
+		}
+		
+		return "redirect:./list.iu?noticeNum="+noticeDTO.getNoticeNum();
 	}
 	
 }

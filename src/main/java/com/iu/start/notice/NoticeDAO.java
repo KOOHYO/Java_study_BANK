@@ -102,4 +102,41 @@ public class NoticeDAO {
 		
 	}
 	
+	public int setDelete(NoticeDTO noticeDTO)throws Exception{
+		
+		Connection con = DBConnector.getConnection();
+		
+		String sql="DELETE NOTICE WHERE NOTICENUM=?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setLong(1, noticeDTO.getNoticeNum());
+		
+		int result = st.executeUpdate();
+		
+		DBConnector.disConnect(st, con);
+		
+		return result;
+		
+	}
+	
+	public int setNotices(NoticeDTO noticeDTO)throws Exception{
+		Connection con = DBConnector.getConnection();
+		
+		String sql ="INSERT INTO NOTICE VALUES(NOTICE_SEQ.NEXTVAL, ?, ?, ?, SYSDATE, 0)";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setString(1, noticeDTO.getNoticeTitle());
+		st.setString(2, noticeDTO.getNoticeContents());
+		st.setString(3, noticeDTO.getNoticeWriter());
+		
+		int result = st.executeUpdate();
+		
+		DBConnector.disConnect(st, con);
+		
+		return result;
+
+	}
+	
 }

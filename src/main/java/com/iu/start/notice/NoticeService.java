@@ -28,4 +28,12 @@ public class NoticeService {
 		return noticeDAO.setUpdate(noticeDTO);
 	}
 	
+	public int setDelete(NoticeDTO noticeDTO)throws Exception{
+		return noticeDAO.setDelete(noticeDTO);
+	}
+	
+	public int setNotices(NoticeDTO noticeDTO)throws Exception{
+		return noticeDAO.setNotices(noticeDTO);
+	}
+	
 }

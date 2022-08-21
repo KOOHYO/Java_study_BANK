@@ -24,8 +24,7 @@ public class BankBookDAO implements BookDAO {
 		Connection con = DBConnector.getConnection();
 				
 		//2. SQL문작성
-		String sql = "INSERT INTO BANKBOOK "
-				+ "VALUES(?, ?, ?, 1)";
+		String sql = "INSERT INTO BANKBOOK VALUES(?, ?, ?, 1)";
 		
 		//3. 미리전송
 		PreparedStatement st = con.prepareStatement(sql);

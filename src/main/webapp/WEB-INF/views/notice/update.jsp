@@ -10,7 +10,7 @@
 	<h1>Update Page</h1>
 	<form action="./update.iu" method="POST">
 		<div>
-			<input type="text" name=noticeNum readonly="readonly" value="${dto.noticeNum}">
+			<input type="hidden" name=noticeNum readonly="readonly" value="${dto.noticeNum}">
 			제목을 수정하세요
 			<br>
 			<input type="text" name="noticeTitle" value="${dto.noticeTitle}">
