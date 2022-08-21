@@ -38,7 +38,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>${dto.noticeContents}</td>
+				<td>${detailDto.noticeContents}</td>
 			</tr>
 		</tbody>
 	</table>
