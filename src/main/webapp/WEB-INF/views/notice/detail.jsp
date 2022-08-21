@@ -20,11 +20,11 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>${detailDto.boardNum}</td>
-				<td>${detailDto.boardTitle}</td>
-				<td>${detailDto.boardUserName}</td>
-				<td>${detailDto.boardDate}</td>
-				<td>${detailDto.boardHits}</td>
+				<td>${detailDto.noticeNum}</td>
+				<td>${detailDto.noticeTitle}</td>
+				<td>${detailDto.noticeWriter}</td>
+				<td>${detailDto.noticeRedate}</td>
+				<td>${detailDto.noticeHit}</td>
 			</tr>
 		</tbody>
 	</table>
@@ -38,7 +38,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>${detailDto.boardDetail}</td>
+				<td>${detailDto.noticeContents}</td>
 			</tr>
 		</tbody>
 	</table>

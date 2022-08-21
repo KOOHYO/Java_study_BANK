@@ -20,7 +20,7 @@
 <c:if test="${not empty sessionScope.member}">
 <h3>${sessionScope.member.name}님 환영합니다</h3>
 <a href="./member/logout.iu">Logout</a>
-<a href="./board/list.iu">게시판</a>
+<a href="./notice/list.iu">게시판</a>
 </c:if>
 
 <a href="./bankbook/list.iu">상품리스트</a>

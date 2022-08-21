@@ -23,11 +23,11 @@
 		<tbody>
 			<c:forEach items="${requestScope.list}" var="dto">
 				<tr>
-					<th>${pageScope.dto.boardNum}</th>
-					<th><a href="detail.iu?boardNum=${dto.boardNum}">${pageScope.dto.boardTitle}</a></th>
-					<th>${pageScope.dto.boardUserName}</th>
-					<th>${pageScope.dto.boardDate}</th>
-					<th>${pageScope.dto.boardHits}</th>
+					<th>${pageScope.dto.noticeNum}</th>
+					<th><a href="detail.iu?noticeNum=${dto.noticeNum}">${pageScope.dto.noticeTitle}</a></th>
+					<th>${pageScope.dto.noticeWriter}</th>
+					<th>${pageScope.dto.noticeRedate}</th>
+					<th>${pageScope.dto.noticeHit}</th>
 				</tr>
 			</c:forEach>
 		</tbody>

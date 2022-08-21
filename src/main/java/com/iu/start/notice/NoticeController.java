@@ -11,30 +11,30 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-@RequestMapping(value = "/board/*")
+@RequestMapping(value = "/notice/*")
 public class NoticeController {
 	
 	@Autowired
-	private NoticeService boardService;
+	private NoticeService noticeService;
 	
 	@RequestMapping (value = "list.iu", method = RequestMethod.GET)
 	public String getList(Model model)throws Exception {
 		System.out.println("게시판목록 접속");
-		ArrayList<NoticeDTO> boardDTOs = boardService.getList();
+		ArrayList<NoticeDTO> noticeDTOs = noticeService.getList();
 
-		model.addAttribute("list", boardDTOs);
+		model.addAttribute("list", noticeDTOs);
 		
-		return "board/list";
+		return "notice/list";
 	}
 	
 	@RequestMapping (value = "detail.iu", method = RequestMethod.GET)
-	public ModelAndView getDetail(NoticeDTO boardDTO) throws Exception {
+	public ModelAndView getDetail(NoticeDTO noticeDTO) throws Exception {
 		System.out.println("게시판 글 상세보기 접속");
 		ModelAndView mv = new ModelAndView();	
-		boardDTO = boardService.getDetail(boardDTO);
+		noticeDTO = noticeService.getDetail(noticeDTO);
 		
-		mv.setViewName("board/detail");
-		mv.addObject("detailDto", boardDTO);
+		mv.setViewName("notice/detail");
+		mv.addObject("detailDto", noticeDTO);
 		
 		return mv;
 	}
