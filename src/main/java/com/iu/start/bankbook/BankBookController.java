@@ -104,6 +104,7 @@ public class BankBookController {
 		//return "bankbook/add";
 		//상품 등록 후 리스트페이지로
 		mv.setViewName("redirect:./list.iu");
+		mv.addObject("dto", bankBookDTO);
 		
 		return mv;
 	}
