@@ -52,7 +52,7 @@ public class NoticeDAO {
 		
 		Connection con = DBConnector.getConnection();
 		
-		String sql = "SELECT * FROM BOARD WHERE BOARDNUM = ?";
+		String sql = "SELECT * FROM NOTICE WHERE NOTICENUM = ?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
